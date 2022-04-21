@@ -1,0 +1,615 @@
+<div>
+    <div class="catalog-header-wrapper">
+        <div class="back-button" style="cursor:pointer">
+            <!-- <i class="fa fa-angle-left md-mr10"></i> -->
+            <img _ngcontent-tyk-c18="" src="//cdn.dotpe.in/cfe/image/menu-back.svg" alt=""  (click)="back()"> Back to menu</div>
+        <div class="logo-wrap">
+
+            <img alt="" class="logo-image" src="../../assets/img/logo.jpg">
+        </div>
+        <!-- <div class="merchant-name-wrapper">
+            <div class="merchant-name primary-cta md-f700 md-text32 md-ml10"></div>
+            <div class="change-store-wrapper primary-cta md-f500 md-text14 md-ml10 md-mt5">
+                <img class="store-icon icon md-mr5" src="//cdn.dotpe.in/cfe/image/ic-store.svg">
+            </div>
+        </div> -->
+    </div>
+    <div class="main-body-container">
+        <div class="actions-wrapper">
+            <div class="number-verification-wrapper">
+                <div class="user-details-wrapper">
+                    <img src="//cdn.dotpe.in/cfe/image/user-details.png" class="black-image-pin icon">
+                </div>
+                <i class="fa fa-check-circle check-icon"></i>
+                <div class="number-verified-container">
+                    <span class="heading md-ml20">Your Details</span>
+                    <div class="number-container md-mt10 md-ml20">
+                        <span class="md-text16 md-f700">{{this.phoneNumber}}</span>
+                        <button class="change-number-btn md-ml10" (click)="phone()">change
+                            <i class="fa fa-pen"></i>
+
+                        </button>
+
+                        <!-- <button class="change-number-btn md-ml10">change
+                                <i class="fa fa-pen"></i>
+                            </button> -->
+                        <div *ngIf="popup" style="position: absolute;
+                            z-index: 9999;">
+                            <div class="whatapp-modal-wrap">
+                                <h2>Enter your WhatsApp
+                                    <img class="md-ml5 wa-logo" src="//cdn.dotpe.in/cfe/image/whatsapp.png">
+                                    <br> Number</h2>
+                                <span class="small-heading">We need this number to provide you with all the necessary updates of your order.</span>
+                                <div class="form-group">
+                                    <input type="text" class="form-control user-name md-pc" placeholder="Customer Name " value="balaji">
+                                </div>
+                                <div class="form-group ">
+                                    <input type="number" class="form-control md-pc" placeholder="Whatsapp Number" value="{{phoneNumber}}">
+                                    <img src="//cdn.dotpe.in/cfe/image/whatsapp.png">
+                                </div>
+                                <button (click)="save()" class="custom-btn ">Save</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="address-main-wrapper">
+                <div class="address-details">
+                    <img src="//cdn.dotpe.in/cfe/image/delivery-location.png" class="black-image-pin icon">
+                </div>
+                <i class="fa fa-check-circle check-icon"></i>
+                <div class="address-website-container ">
+                    <div class="address-main-body">
+                        <div>
+                            <div class="complete-address-wrapper md-mt10">
+                                <div class="md-text14 md-f500 md-mb12 md-c646464">Delivery Address</div>
+                                <div class="complete-address">
+                                    <span class="addres md-text20 md-f400 md-c030303">4/436, 4 block, home</span>
+                                    <button class="change-number-btn md-ml10" (click)="location()">change
+                                        <i class="fa fa-pen"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-main-wrapper">
+                <div class="payment-icon">
+                    <img src="//cdn.dotpe.in/cfe/image/wallet.svg" class="black-image-pin icon">
+                </div>
+                <div class="payment-container">
+                    <div class="payment-main-body">
+                        <div class="payment-modal ">
+                            <div class="payment-title-header">
+                                <div class="payment-amount">
+                                    <div class="md-text24 md-f700 md-pb20" style="padding:33px">Select a payment method</div>
+                                </div>
+                            </div>
+                            <div>
+                                <ul class="payment-option-container">
+                                    <li id="payment-method-card" class="payment-item-wrapper card">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/card.png" alt="card">
+                                        </div>
+                                        <div class="payment-method">card</div>
+                                    </li>
+                                    <li id="payment-method-mobikwik" class="payment-item-wrapper mobikwik">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/mobikwik.png" alt="mobikwik">
+                                        </div>
+                                        <div class="payment-method">mobikwik</div>
+                                    </li>
+                                    <li id="payment-method-lazyPay" class="payment-item-wrapper lazyPay">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/lazyPay.png" alt="lazyPay">
+                                        </div>
+                                        <div class="payment-method">lazyPay</div>
+                                    </li>
+                                    <li id="payment-method-paytm" class="payment-item-wrapper paytm">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/paytm.png" alt="paytm">
+                                        </div>
+                                        <div class="payment-method">paytm</div>
+                                    </li>
+                                    <li id="payment-method-simpl" class="payment-item-wrapper simpl">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/simpl.png" alt="simpl">
+                                        </div>
+                                        <div class="payment-method">simpl</div>
+                                    </li>
+                                    <li id="payment-method-googlepay" class="payment-item-wrapper googlepay upi-card">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/googlepay.png" alt="googlepay">
+                                        </div>
+                                        <div class="payment-method">Google Pay</div>
+                                    </li>
+                                    <li id="payment-method-phonepe" class="payment-item-wrapper phonepe upi-card">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/phonepe.png" alt="phonepe">
+                                        </div>
+                                        <div class="payment-method">PhonePe</div>
+                                    </li>
+                                    <li id="payment-method-payzapp" class="payment-item-wrapper payzapp">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/payzapp.png" alt="payzapp">
+                                        </div>
+                                        <div class="payment-method">payZapp</div>
+                                    </li>
+                                    <li id="payment-method-airtel" class="payment-item-wrapper airtel">
+                                        <div class="logo">
+                                            <img src="//cdn.dotpe.in/cfe/image/airtel.png" alt="airtel">
+                                        </div>
+                                        <div class="payment-method">airtel</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="cart-wrapper">
+            <div class="cart-section">
+                <div class="cart-heading">
+                    <span class="cart-item-text md-text23 md-f600 md-mb10">1 Item in Cart</span>
+                </div>
+                <div class="cart-item-wrapper">
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Mexican Beans &amp; Greens Salad</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 375</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681876-item-postpaid-description">House Mix Lettuce, Smashed Tortilla, Avocado, Garlic Sour Cream, Sweet Chilli Salsa Dressing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="promotion-section">
+                <div class="promotion-container md-mb5 md-text14 ">
+                    <img src="//cdn.dotpe.in/cfe/image/promo-success-icon.svg" class="md-mr5"> APPLY PROMO CODE</div>
+                <span></span>
+            </div>
+            <div></div>
+            <div class="bill-section">
+                <span class="md-text14 md-mt20 md-f700">Bill Details</span>
+                <div class="price-detail">
+                    <div class="price-wrapper md-mt10">
+                        <div>Item Total</div>
+                        <div>₹ 375.00</div>
+                    </div>
+                    <div class="price-wrapper md-mt10">
+                        <div>Delivery Fee</div>
+                        <div>₹ 100.00</div>
+                    </div>
+                    <div class="price-wrapper md-mt10">
+                        <div>Packaging Fee</div>
+                        <div>₹ 18.75</div>
+                    </div>
+                    <div class="price-wrapper md-mt10">
+                        <div>Tax &amp; other charges</div>
+                        <div>₹ 36.76</div>
+                    </div>
+                </div>
+                <div class="total-pay-wrapper md-mt10">
+                    <div class="price-wrapper">
+                        <div class="md-text16 md-f700">To Pay</div>
+                        <div class="md-text16 md-f700">₹ 530.51</div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="cart-wrapper">
+            <div class="cart-section">
+                <div class="cart-heading">
+                    <span class="cart-item-text md-text23 md-f600 md-mb10">9 Items in Cart</span>
+                </div>
+                <div class="cart-item-wrapper">
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Mexican Beans &amp; Greens Salad</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 375</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681876-item-postpaid-description">House Mix Lettuce, Smashed Tortilla, Avocado, Garlic Sour Cream, Sweet Chilli Salsa Dressing</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Shawarma Bowl - Chicken</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 430</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681892-item-postpaid-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Chicken Shawarma</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Skinny Caesar Salad - Chicken</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 380</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681894-item-postpaid-description">House Mix Lettuce, Garlic Croutons &amp; Marinated Tomatoes, Skinny Parmesan Yoghurt</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Fresh Mozzarella Salad</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 380</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2919255-item-postpaid-description">Marinated Tomatoes, Olives, Crispy Pasta, Basil-Roasted Garlic Dressing</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Fajita Bowl - Paneer</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 370</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944233-item-postpaid-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream served with Fajita Paneer</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Winter Burrata</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 425</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3224502-item-postpaid-description">Maple Mustard Dressing, Spice Roasted Pumpkin, Chilli Jam and Pickled Cranberries</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Asian Dressing</span>
+                                    <div class="increment-decrement-btn-container   ">
+                                        <div class="md-pc">
+                                            <i class="fa fa-minus"></i>
+                                        </div>
+                                        <div class="md-text13 md-f700 md-pc cart-quantity-text">2</div>
+                                        <div class="md-pc">
+                                            <i class="fa fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 175</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287688-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Winter Bocconcini</span>
+                                    <div class="add-btn-container   ">
+                                        <div class="increment-decrement-btn-container">
+                                            <div class="md-pc">
+                                                <i class="fa fa-minus"></i>
+                                            </div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc">
+                                                <i class="fa fa-plus"></i>
+                                            </div>
+                                        </div>
+                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
+                                    </div>
+                                </div>
+                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 380</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3459526-item-postpaid-description">Maple Mustard Dressing, Spice Roasted Pumpkin, Chilli Jam Marinated Bocconcini and Pickled Cranberries</span>
+                        </div>
+                    </div>
+                    <div class="single-cart-data">
+                        <div class="store-menu-product-item-wrap   ">
+                            <div class="store-image-social-icon-wrapper">
+                                <div class="social-proofing-wrapper"></div>
+                            </div>
+                            <div class="item">
+                                <div class="details">
+                                    <span class="title md-text16 md-f500">Roasted Garlic - Basil Hummus &amp; Granola</span>
+                                    <div class="increment-decrement-btn-container   ">
+                                        <div class="md-pc">
+                                            <i class="fa fa-minus"></i>
+                                        </div>
+                                        <div class="md-text13 md-f700 md-pc cart-quantity-text">1</div>
+                                        <div class="md-pc">
+                                            <i class="fa fa-plus"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="price-quantity-container">
+                                    <div class="price md-text13 md-f600 ">
+                                        <span class="price md-text13 md-f600 md-c000000">₹ 175</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="menu-item-description-container postpaid-description  ">
+                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3530842-item-postpaid-description">Toasted Rolled Oats, Tapioca Crisps, Melon Seeds with Roasted Garlic - Basil Hummus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="promotion-section">
+                <div class="promotion-container md-mb5 md-text14 ">
+                    <img src="//cdn.dotpe.in/cfe/image/promo-success-icon.svg" class="md-mr5"> APPLY PROMO CODE</div>
+                <span></span>
+            </div>
+            <div></div>
+            <div class="bill-section">
+                <span class="md-text14 md-mt20 md-f700">Bill Details</span>
+                <div class="price-detail">
+                    <div class="price-wrapper md-mt10">
+                        <div>Item Total</div>
+                        <div>₹ 3265.00</div>
+                    </div>
+                    <div class="price-wrapper md-mt10">
+                        <div>Delivery Fee</div>
+                        <div>₹ 100.00</div>
+                    </div>
+                    <div class="price-wrapper md-mt10">
+                        <div>Packaging Fee</div>
+                        <div>₹ 163.25</div>
+                    </div>
+                    <div class="price-wrapper md-mt10">
+                        <div>Tax &amp; other charges</div>
+                        <div>₹ 181.30</div>
+                    </div>
+                </div>
+                <div class="total-pay-wrapper md-mt10">
+                    <div class="price-wrapper">
+                        <div class="md-text16 md-f700">To Pay</div>
+                        <div class="md-text16 md-f700">₹ 3709.55</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <ng-template #modalData let-modal>
+            <div class="modal-header">
+              <h4 class="modal-title" id="modal-basic-title">Angular Bootstrap Modal Popup</h4>
+              <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <p><strong>Are you sure you want to delete <span class="text-primary">"Agatha Harkness"</span> profile?</strong></p>
+              
+              <p>All data related to west view profile will be removed permanently.
+              </p>
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button> 
+            </div>
+          </ng-template> -->
+<div *ngIf="otp" class="ReactModalPortal">
+    <div class="ReactModal__Overlay ReactModal__Overlay--after-open" style="position: fixed; inset: 0px; background-color: rgba(255, 255, 255, 0.75);">
+        <div class="ReactModal__Content ReactModal__Content--after-open bottom-modal" tabindex="-1" role="dialog">
+            <div class="otp-verify-pop-up-design">
+                <span class="close-icon-popup" aria-hidden="true" (click)="remove()">
+                    <img src="https://cdn.dotpe.in/cfe/image/ic-close.svg">
+                </span>
+                <h2 class="header-otp-message">Enter OTP Sent to
+
+                    <span class="contact-detail-otp">{{phoneNumber}}</span>
+                </h2>
+                <ngx-otp-input [config]="otpInputConfig" (fill)="handleFillEvent($event)" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                </ngx-otp-input>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 25px;">
+                    <!-- <div style="display: flex; align-items: center;">
+                        <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                        <span> </span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                        <span> </span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                        <span> </span>
+                    </div>
+                    <div style="display: flex; align-items: center;">
+                        <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                    </div> -->
+                </div>
+                <div class="mt-20 md-text14 md-f500 otp-resend-text">RESEND OTP</div>
+                <div class="continue-button">
+                    <button type="button" (click)="verify()" class="confirm-cta-btn mt-50 primary-cta md-text16 md-f700  btn btn-primary btn-block">CONTINUE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

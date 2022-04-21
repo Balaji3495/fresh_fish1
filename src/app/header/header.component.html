@@ -1,0 +1,1440 @@
+<!-- header page -->
+<div id="root" style="overflow-y: hidden;">
+    <div class="website-header">
+        <div class="website-header-main-container" style="top: 0px;">
+            <div class="website-main-header">
+                <div class="brand-logo-container">
+                    <img src="../../assets/img/logo.jpg" alt="">
+                </div>
+                <div class="location-address-container">
+                    <div class="merchant-name textAlignC md-mb16 md-text18 md-f500">Fresh Fish
+                        <span class="material-icons-outlined">
+                            search
+                            <!-- <i class="fa fa-user fa-5x"></i> -->
+                        </span>
+                    </div>
+
+                    <div class="" class="website-search-bar">
+                        <div class="" class="header header-search md-p16">
+                            <span class="">
+                                <img class="search" src="//cdn.dotpe.in/cfe/image/search-grey.png" alt="">
+                                <input type="text" autocomplete="off" class="form-control md-text14 md-f400" name="search-keyword" id="search-keyword" placeholder="Search for items…"
+                                    value="">
+
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="store-location-container-web md-pt10">
+                    <!-- <div class="store-heading md-text16 md-f500">Store location
+
+                    </div>
+                    <div class="store-location md-c696F76 md-text13 md-mt8">
+                        Fresh Fish
+                        
+
+                    </div> -->
+                    <div class="_2fX4J" *ngIf="!userHead">
+                        <a (click)="poplogin()" class="x4bK8">Login</a>
+                        <a (click)="popsignup()" class="r2iyh">Sign up</a>
+                    </div>
+                    <div class="_2fX4J" *ngIf="userHead">
+                        <label class="x4bK8">{{userName}}</label>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="website-search-logo">
+            <div class="website-fixed-container" content="width=device-width" initial-scale="1.0">
+                <div class="logo-name-wrapper">
+                    <div class="brand-logo-container">
+                        <img class="b-logo" src="../../assets/img/logo.jpg" alt="">
+                    </div>
+                    <div class="brand-name-container md-ml12 md-text16 md-f700">
+                        Fresh Fishs
+                        <!-- <i class="fas fa-check"></i> -->
+                    </div>
+                </div>
+                <div class="website-search-bar">
+                    <div class="header header-search md-p16">
+                        <span>
+                            <img src="//cdn.dotpe.in/cfe/image/search-grey.png" alt="">
+                            <input type="text" autocomplete="off" class="form-control md-text14 md-f400" name="search-keyword" id="search-keyword" placeholder="Search for items…"
+                                value="">
+                        </span>
+                    </div>
+
+                </div>
+                <div class="dummy-div">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="store-catalog-wrapper">
+        <div class="web-menu-container">
+            <div class="website-menu-wrapper">
+                <span class="menu-heading md-text16 md-f700 md-pb15 md-pl8 md-mb16">MENU</span>
+                <div class="menu-list-wrapper">
+                    <ul class="menu-list" id="menu">
+                        <li id="">
+                            <a href="#recommended-item-1" data-target="#recommended-item-1">Recommended</a>
+                        </li>
+                        <li id="" *ngFor="let item of menuList">
+                            <a href="{{item._id}}" data-target="#Slices">{{item.product_cate}}</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main-store-page-wrap " style="overflow-y: scroll;">
+            <div class="store-header-main-wrapper">
+                <div>
+                    <div class="md-sbg md-pb15">
+                        <div class="dfr store store-location-header md-pbg md-sbg md-cffffff md-pl15 md-pr15 md-pt10 md-pb14 md-text12 md-f500 banners">
+                            <div class="logo-wrap" style="    border-radius: 50%;">
+                                <img src="../../assets/img/logo.jpg" alt="" style="    border-radius: 50%;">
+                            </div>
+                            <div class="store-detail">
+                                <span class="md-ml5 md-mr10 md-text14 md-f700 store-name">Fresh Fish</span>
+
+                            </div>
+                            <div _ngcontent-peo-c16="" class="menu-type-main-container">
+                                <div _ngcontent-peo-c16="" class="menu-type-chip-container">
+                                    <div _ngcontent-peo-c16="" class="menu-option dfr md-text12 md-f500">
+                                        <span _ngcontent-peo-c16="">Pickup</span>
+                                        <i _ngcontent-peo-c16="" class="fa fa-angle-down md-pl8"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="header header-search md-p16 ">
+                            <span>
+                                <img src="//cdn.dotpe.in/cfe/image/search-grey.png" alt="">Search for items…</span>
+                        </div>
+                        <div></div>
+                        <div class="banner-wrapper ">
+                            <div class="banner-img-container ">
+                                <div class="banner-img " *ngFor="let item of bannerImg">
+                                    <img src="{{item.banner_img}}" alt="0promoBanner">
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="header-block-wrap banners" style="background-image: url(&quot;null&quot;);">
+                    <div class="promotion-offer-banner dfr justify-content-between ">
+                        <div class="more-promo-text dfr flex-column align-items-start">
+                            <div class="get-free-text md-text18 md-f700">Exciting offers available</div>
+                            <div class="dotpe-offer-text">
+                                <span class="flat-text">40% off up to Rs. 150</span>
+                            </div>
+                            <div class="view-all-offers md-text12 md-f700">VIEW OFFERS
+                                <img src="//cdn.dotpe.in/cfe/image/img-arrow-banner-forward.svg">
+                            </div>
+                        </div>
+                        <div class="promo-banner-img-wrapper">
+                            <div class="payment-promo-wrapper dfr">
+                                <div class="payment-img-wrapper">
+                                    <img src="https://cdn.dotpe.in/cfe/image/onecardlogo.png" alt="">
+                                </div>
+                                <div class="payment-img-wrapper">
+                                    <img src="//cdn.dotpe.in/cfe/image/lazyPay.png" alt="">
+                                </div>
+                                <div class="promo-count md-text12">+9</div>
+                            </div>
+                            <img class="image-banner" src="//cdn.dotpe.in/cfe/image/img-banner-gift-1.png">
+                        </div>
+                    </div>
+                    <div class="offers-container">
+                        <div class="referral-banner-main-container "></div>
+                    </div>
+                </div>
+            </div>
+            <div class="home-page  ">
+                <div class="store-menu">
+                    <!-- <div id="toggleSwitch" class="">
+                        <span class="toggle-title">Veg only</span>
+                        <input type="checkbox" id="switch">
+                        <label for="switch">Toggle</label>
+                    </div> -->
+                    <div class="website-all-banners ">
+                        <div class="website-banners-container md-pb40">
+                            <div class="container">
+                                <!-- <div class="slider-wrapper">
+                                    <div class="slider-block">
+                                        <div class="carousel-root">
+                                            <div class="carousel carousel-slider" style="width: 100%;"><button
+                                                    type="button" aria-label="previous slide / item"
+                                                    class="control-arrow control-prev control-disabled"></button>
+                                                <div class="slider-wrapper axis-horizontal">
+                                                    <ul class="slider animated"
+                                                        style="transform: translate3d(-100%, 0px, 0px); transition-duration: 350ms;">
+                                                        <li class="slide active"><img
+                                                                src="//cdn.dotpe.in/promoBanner/7038/dressing_catalogue_2a__.jpg"
+                                                                alt="promoBanner"></li>
+                                                        <li class="slide selected"><img
+                                                                src="//cdn.dotpe.in/promoBanner/7038/CATALOUGE_BANNER_final___copy.jpg"
+                                                                alt="promoBanner"></li>
+                                                        <li class="slide"><img
+                                                                src="//cdn.dotpe.in/promoBanner/7038/HUMMUS_CATALOG_BANNER_3_.jpg"
+                                                                alt="promoBanner"></li>
+                                                        <li class="slide"><img
+                                                                src="//cdn.dotpe.in/promoBanner/7038/dressing_catalogue_2a__.jpg"
+                                                                alt="promoBanner"></li>
+                                                        <li class="slide selected"><img
+                                                                src="//cdn.dotpe.in/promoBanner/7038/CATALOUGE_BANNER_final___copy.jpg"
+                                                                alt="promoBanner"></li>
+                                                    </ul>
+                                                </div><button type="button" aria-label="next slide / item"
+                                                    class="control-arrow control-next control-disabled"></button>
+                                                <ul class="control-dots">
+                                                    <li class="dot selected active" value="0" role="button" tabindex="0"
+                                                        aria-label="slide item 1"></li>
+                                                    <li class="dot" value="1" role="button" tabindex="0"
+                                                        aria-label="slide item 2"></li>
+                                                    <li class="dot" value="2" role="button" tabindex="0"
+                                                        aria-label="slide item 3"></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                                    <!-- Indicators -->
+                                    <ul class="carousel-indicators">
+                                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                                        <li data-target="#demo" data-slide-to="1"></li>
+                                        <li data-target="#demo" data-slide-to="2"></li>
+                                    </ul>
+
+                                    <!-- The slideshow -->
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img src="{{bannerImg[0].banner_img}}" alt="Los Angeles" width="1100" height="500">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{bannerImg[1].banner_img}}" alt="Chicago" width="1100" height="500">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="{{bannerImg[2].banner_img}}" alt="New York" width="1100" height="500">
+                                        </div>
+                                    </div>
+
+                                    <!-- Left and right controls -->
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="promotion-offer-banner dfr justify-content-between ">
+                            <div class="more-promo-text dfr flex-column align-items-start">
+                                <div class="get-free-text md-text18 md-f700">Exciting offers available</div>
+                                <div class="dotpe-offer-text">
+                                    <span class="flat-text">40% off up to Rs. 150</span>
+                                </div>
+                                <div class="view-all-offers md-text12 md-f700">VIEW OFFERS
+                                    <img src="//cdn.dotpe.in/cfe/image/img-arrow-banner-forward.svg">
+                                </div>
+                            </div>
+                            <div class="promo-banner-img-wrapper">
+                                <div class="payment-promo-wrapper dfr">
+                                    <div class="payment-img-wrapper">
+                                        <img src="https://cdn.dotpe.in/cfe/image/onecardlogo.png" alt="">
+                                    </div>
+                                    <div class="payment-img-wrapper">
+                                        <img src="https://cdn.dotpe.in/cfe/image/simpl.png" alt="">
+                                    </div>
+                                    <div class="promo-count md-text12">+2</div>
+                                </div>
+                                <img class="image-banner" src="//cdn.dotpe.in/cfe/image/img-banner-gift-1.png">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="combo-items-main-container md-pl11 md-pt32 md-mb20 d-none"></div> -->
+                    <div class="category-container ">
+                        <div class="store-best-sell-items-wrap subcategory-items-wrap" id="recommended-item-1">
+                            <h2>Recommended Items</h2>
+                            <div class="best-sell-items-container" *ngFor="let item of Recom; let i ofindex">
+                                <div class="best-sell-items-inner-container">
+                                    <div class="top-item-details-container">
+                                        <div class="dfr align-items-start">
+                                            <div class="best-item-type food-type-icon-conatiner ">
+                                                <div class="food-icon"></div>
+                                            </div>
+                                            <div class="social-proofing-wrapper"></div>
+                                        </div>
+                                        <div class="">
+                                            <div class="store-menu-product-item-wrap   ">
+                                                <div class="store-image-social-icon-wrapper"></div>
+                                                <div class="item">
+                                                    <div class="details">
+                                                        <span class="title md-text16 md-f700 md-lh16">{{item.product_title}}
+                                                        </span>
+                                                    </div>
+                                                    <div class="price-quantity-container">
+                                                        <div class="price md-text13 md-f600 ">
+                                                            <span class="price md-text13 md-f600 md-c000000">₹{{item.product_price}}</span>
+                                                        </div>
+                                                        <div class="add-btn-container  ">
+                                                            <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                <div class="add-quantity-text" (click)="addcart(item)">ADD</div>
+                                                               
+                                                                    <!-- <div *ngIf="cartProduct.length>0"class="increment-decrement-btn-container">
+                                                                        <div class="md-pc">
+                                                                            <i class="fa fa-minus"  (click)="increment(i)"></i>
+                                                                        </div>
+                                                                        <div class="md-pc md-text13 md-f700 cart-quantity-text">{{i.quantity}}</div>
+                                                                        <div class="md-pc">
+                                                                            <i class="fa fa-plus"  (click)="increment(i)"></i>
+                                                                        </div>
+                                                                    </div> -->
+                                                               
+                                                            </div>
+                                                            <div class="custmisable-btn md-text10 md-c727272">
+                                                                customizable</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="menu-item-description-container dfr ">
+                                                        <span class="menu-item-description md-c535e65 md-f500 md-text12" id="{{item._id}}">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Paneer Shawarma</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681882-item-postpaid-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Paneer Shawarma</span>
+                                            </div> -->
+                                        </div>
+                                    </div>
+                                    <div class="md-pb30">
+                                        <div class="product-img-wrap" style="background-image: url(&quot;{{item.thumbnail_image}}&quot;); display: flex; place-items: center;">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                        <div class="all-categories"></div>
+                        <div class="menu-category-items-wrap cat-top-item" style="">
+                            <div *ngFor="let item of Product_details">
+                                <div id="{{item.cat_id}}" class="subcategory-items-wrap">
+                                    <div class="category-title" id="cat-id-214647">
+                                        <span class="md-mt5 md-ml5 md-mb35">{{item.cat_name}}</span>
+                                    </div>
+                                    <div class="product-group-with-images">
+                                        <div class="item-layout-panel " *ngFor="let sub of item.product_list">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">{{sub.product_title}}</span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ {{sub.product_price}}
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="1681875-item-description">Marinated Burrata, Slow Roasted Tomato, Seed Granola, House Mix
+                                                                Lettuce, Caper Mustard Dressing</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681875-item-postpaid-description">Marinated Burrata, Slow Roasted Tomato, Seed Granola, House Mix Lettuce,
+                                                        Caper Mustard Dressing
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb30">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;{{sub.thumbnail_image}}&quot;); display: flex; place-items: center;">
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="product-group-with-images"></div>
+                                </div>
+                            </div>
+                            <!-- <div>
+                                <div id="Cubes" class="subcategory-items-wrap">
+                                    <div class="category-title" id="cat-id-427717">
+                                        <span class="md-mt5 md-ml5 md-mb35">Cubes</span>
+                                    </div>
+                                    <div class="product-group-with-images">
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">BH BBQ Sauce
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 185
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287687-item-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287687-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img19.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner nveg">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Olive Hummu's &
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 400
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="2944235-item-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream
+                                                                served with Fajita Chicken</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944235-item-postpaid-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream served
+                                                        with Fajita Chicken
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img13.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-group-with-images"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="Filters" class="subcategory-items-wrap ">
+                                    <div class="category-title" id="cat-id-214648">
+                                        <span class="md-mt5 md-ml5 md-mb35">Filters</span>
+                                    </div>
+                                    <div class="product-group-with-images">
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Butterheads Buratta
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 370
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="2944234-item-description">Cheese Rice, Vegetables and Basil Ranch served with BBQ Mushroom</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944234-item-postpaid-description">Cheese Rice, Vegetables and Basil Ranch served with BBQ Mushroom</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img1.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner nveg">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Smokin' Hot BBQ Bowl - Chicken</span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 400
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="2944236-item-description">Cheese Rice, Vegetables and Basil Ranch served with BBQ Chicken</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944236-item-postpaid-description">Cheese Rice, Vegetables and Basil Ranch served with BBQ Chicken</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img21.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Shawarma Bowl - Paneer
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 400
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="1681882-item-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Paneer
+                                                                Shawarma
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681882-item-postpaid-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Paneer Shawarma</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/img/fish3.jpg&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner nveg">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Shawarma Bowl - Chicken
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 430
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="1681892-item-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Chicken
+                                                                Shawarma
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681892-item-postpaid-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Chicken Shawarma</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/img/fish4.jpg&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Fajita Bowl - Paneer
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 370
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="2944233-item-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream
+                                                                served with Fajita Paneer</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944233-item-postpaid-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream served
+                                                        with Fajita Paneer
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img14.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner nveg">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Fajita Bowl - Chicken
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 400
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-btn-container  ">
+                                                                <div class="add-quantity-btn  md-pc md-text13 md-f700">
+                                                                    <div class="add-quantity-text">ADD</div>
+                                                                </div>
+                                                                <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="2944235-item-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream
+                                                                served with Fajita Chicken</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944235-item-postpaid-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream served
+                                                        with Fajita Chicken
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img13.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-group-with-images"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="Fingers" class="subcategory-items-wrap ">
+                                    <div class="category-title" id="cat-id-400484">
+                                        <span class="md-mt5 md-ml5 md-mb35">Fingers</span>
+                                    </div>
+                                    <div class="product-group-with-images">
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">BH BBQ Sauce
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 185
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287687-item-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287687-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img19.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Asian Dressing
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 175
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287688-item-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287688-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/img/fish3.jpg&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Mexican Dressing
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 160
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287689-item-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287689-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/img/fish.jpg&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Pesto Dressing
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 145
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287690-item-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287690-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img11.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">House Mix Lettuce
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 120
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287691-item-description">Processed, Pre Cut and Ready to Toss Butterheads House Mix (80gms)</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287691-item-postpaid-description">Processed, Pre Cut and Ready to Toss Butterheads House Mix (80gms)</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img6.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Pickling Liquid
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 100
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3287692-item-description">Vinegar, Sugar, Salt and Spice - Making Everything Nice</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287692-item-postpaid-description">Vinegar, Sugar, Salt and Spice - Making Everything Nice</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img3.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-group-with-images">
+                                        <div class="item-layout-panel item-without-image">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Red Chilli Ketchup
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 185
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="3405721-item-description">Home Made Red Chilli Ketchup
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  ">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3405721-item-postpaid-description">Home Made Red Chilli Ketchup
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb30">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img23.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <div id="Curry" class="subcategory-items-wrap ">
+                                    <div class="category-title" id="cat-id-214649">
+                                        <span class="md-mt5 md-ml5 md-mb35">Curry</span>
+                                    </div>
+                                    <div class="product-group-with-images">
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Jigarthanda Smoothie
+                                                            </span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 250
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="1681885-item-description">Vanilla Yoghurt, Almond Gum, Nannari Extract</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681885-item-postpaid-description">Vanilla Yoghurt, Almond Gum, Nannari Extract</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img23.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="item-layout-panel ">
+                                            <div class="item-layout-inner-wrapper ">
+                                                <div class="dfr align-items-start flex-wrap">
+                                                    <div class="best-item-type food-type-icon-conatiner ">
+                                                        <div class="food-icon"></div>
+                                                    </div>
+                                                    <div class="social-proofing-wrapper"></div>
+                                                </div>
+                                                <div class="store-menu-product-item-wrap   ">
+                                                    <div class="store-image-social-icon-wrapper">
+                                                        <div class="social-proofing-wrapper"></div>
+                                                    </div>
+                                                    <div class="item">
+                                                        <div class="details">
+                                                            <span class="title md-text16 md-f700 md-lh16">Dark Chocolate Pudding Smoothie</span>
+                                                        </div>
+                                                        <div class="price-quantity-container">
+                                                            <div class="price md-text13 md-f600 ">
+                                                                <span class="price md-text13 md-f600 md-c000000">₹ 250
+                                                                </span>
+                                                            </div>
+                                                            <div class="add-quantity-btn md-text13 md-f700 md-pc  ">
+                                                                <div class="add-quantity-text">Add</div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="menu-item-description-container dfr ">
+                                                            <span class="menu-item-description md-c535e65 md-f500 md-text12" id="1681886-item-description">Hazelnut Yoghurt, Sea Salt, Dark Chocolate, Date Syrup</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-item-description-container postpaid-description  with-image-decription">
+                                                    <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681886-item-postpaid-description">Hazelnut Yoghurt, Sea Salt, Dark Chocolate, Date Syrup</span>
+                                                </div>
+                                            </div>
+                                            <div class="md-pb40">
+                                                <div class="product-img-wrap" style="background-image: url(&quot;../../assets/food-img/img3.webp&quot;); display: flex; place-items: center;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="product-group-with-images"></div>
+                                </div>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-container ">
+                    <div class="new-footer-container  extra-space">
+                        <div class="footer-wrapper md-pb32">
+                            <div class="footer-heading md-text18 md-f700">Fresh Fish</div>
+                            <div class="store-address-wrapper md-pt32">
+                                <div class="logo-wrap">
+                                    <img src="//cdn.dotpe.in/cfe/image/location-icn.png" alt="">
+                                </div>
+                                <div class="address md-text13 md-f300 md-ml8">#13, 1St, Crescent Rd, Gandhi Nagar, Adyar , </div>
+                            </div>
+                            <div class="store-phone-number dfrb md-pt12">
+                                <div class="logo-wrap">
+                                    <img src="//cdn.dotpe.in/cfe/image/phone-icon.svg" alt="">
+                                </div>
+                                <div class="phone-number md-text13 md-f300 md-ml8">9025656811</div>
+                            </div>
+                            <div class="gstin-wrapper dfrb md-pt12">
+                                <div class="logo-wrap">
+                                    <img src="//cdn.dotpe.in/cfe/image/gst-icn-new.svg" alt="">
+                                </div>
+                                <div class="gstin md-text13 md-f300 md-ml8">GSTIN - 33AVYPA0749F1ZL</div>
+                            </div>
+                        </div>
+                        <div class="dot-logo-wrapper md-pt32">
+                            <div class="logo-main">
+                                <span class="powered-by md-text13 md-mb8">Powered by</span>
+                                <br>
+                                <a class="md-pt8" target="_blank" href=" https://dotpe.in/?utm_source=platform_cat&amp;utm_medium=Butterheads">
+                                    <img src="//cdn.dotpe.in/cfe/image/logo_tagline_icon.png" alt="">
+                                </a>
+                            </div>
+                            <div class="year">
+                                <span class="md-f400 md-text14">
+                                    <img src="//cdn.dotpe.in/cfe/image/copyright.svg" class="md-mr4"> 2022 DotPe</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div *ngIf="menubar" class="nav-menu-wrapper ">
+                        <div class="menuBg"></div>
+                        <div class="nav-link  expand ">
+                            <div>
+                                <div class="nav-menu-modal">
+                                    <div class="nav-menu">
+                                        <div class="menu-list-wrapper ">
+                                            <ul class="menu-list">
+
+
+                                                <li>
+                                                    <a (click)="closeData()" href="#recommended-item-1" data-target="#recommended-item-1">Recommended</a>
+                                                </li>
+                                                <li>
+                                                    <a (click)="closeData()" href="#Slices" data-target="#Slices">Slices</a>
+                                                </li>
+                                                <li>
+                                                    <a (click)="closeData()" href="#Cubes" data-target="#Cubes">Cubes</a>
+                                                </li>
+                                                <li>
+                                                    <a (click)="closeData()" href="#Filters">Filters</a>
+                                                </li>
+                                                <li>
+                                                    <a (click)="closeData()" href="#Fingers">Fingers</a>
+                                                </li>
+                                                <li>
+                                                    <a (click)="closeData()" href="#Curry">Curry</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <img (click)="closeData()" class="nav-menu-close  " src="//cdn.dotpe.in/cfe/image/ic-close.svg" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-menu-wrapper " (click)="showData()">
+                    <div class="menu-view-icon primary-cta ">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <div>Menu</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mobile-promotion-difference" style=""></div>
+        <div class="webiste-catalog-cart-view" style="display:none">
+            <div class="empty-cart-heading">
+                <span class="empty-cart-text md-text20 md-f500">Your Cart Empty</span>
+                <img class="empty-cart" src="//cdn.dotpe.in/cfe/image/web-cart-gray.png" alt="">
+            </div>
+
+        </div>
+        <div class="webiste-catalog-cart-view">
+            <!-- <div class="empty-cart-heading"><span class="empty-cart-text md-text20 md-f500">Your Cart Empty</span><img
+                    class="empty-cart" src="//cdn.dotpe.in/cfe/image/web-cart-gray.png" alt=""></div> -->
+            <div class="_5ZwHn">
+                <div class="_1WKwn">
+                    <div class="_2uq6N">Cart
+                        <div class="_1XFmX">2 Items</div>
+                    </div>
+                    <div class="_1t-Al _1XUXj">
+                        <div class="_3YMqW"></div>
+                        <div class="_2ObNr _2qOpI">
+                            <div>
+                                <div class="_2zsON"></div>
+                                <div class="MGAj1 _1AbNQ">
+                                    <div class="_1qq2B _1E5jd" style="background-color: rgb(20 59 150);"></div>
+                                    <div>
+                                        <div class="_3uVGZ">WELCOME50 eligible items</div>
+                                        <div class="_5SQ9B">You just
+                                            <span style="font-weight: 600;">saved ₹99</span> on these items!</div>
+                                    </div>
+                                    <div class="scroll" style="overflow-y: scroll;
+                                    height: 70px;">
+                                        <div class="_2bXOy" *ngFor="let item of cartProduct;let i ofindex">
+                                            <div class="_3SG03">
+                                                <!-- <i class="styles_icon__m6Ujp _2MJB6 icon-Veg styles_iconVeg__shLxJ" role="presentation" aria-hidden="true" style="line-height: 1.2;"></i> -->
+                                                <div class="best-item-type food-type-icon-conatiner ">
+                                                    <div class="food-icon"></div>
+                                                </div>
+                                                <div class="_33KRy">{{item.product_title}}</div>
+                                            </div>
+                                            <div class="_2bWmk">
+                                                <div class="_1yTZI">
+                                                    <div class="_29ugw _3L1X9">
+                                                        <div class="_1RPOp _36fT9 _4aKW6">ADD</div>
+                                                        <div class="_1ds9T" (click)="increment(i)">+</div>
+                                                        <div class="_29Y5Z" (click)="decrement(i)"></div>
+                                                        <div class="_2zAXs">{{i.quantity}}</div>
+                                                    </div>
+                                                    <div class="_1mx0r">
+                                                        <!-- <span class="_2OlEg">194</span> -->
+                                                        <span class="_2W2U4">{{item.product_price}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="_2bXOy">
+                                            <div class="_3SG03">
+                                              
+                                                <div class="best-item-type food-type-icon-conatiner ">
+                                                    <div class="food-icon"></div>
+                                                </div>
+                                                <div class="_33KRy">Extra Mayonaise</div>
+                                            </div>
+                                            <div class="_2bWmk">
+                                                <div class="_1yTZI">
+                                                    <div class="_29ugw _3L1X9">
+                                                        <div class="_1RPOp _36fT9 _4aKW6">ADD</div>
+                                                        <div class="_1ds9T">+</div>
+                                                        <div class="_29Y5Z"></div>
+                                                        <div class="_2zAXs">1</div>
+                                                    </div>
+                                                    <div class="_1mx0r">
+                                                        <span class="_2OlEg">37</span>
+                                                        <span class="_2W2U4">20.99</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                </div>
+                                <div class="_3DPdG"></div>
+                            </div>
+                        </div>
+                        <div class="_1v28S _2Cjz6"></div>
+                    </div>
+                    <div class="EEeV3">
+                        <div class="_161V3">
+                            <div class="_1DWmI">Subtotal</div>
+                            <div>
+                                <span>₹ {{totalAmount}}</span>
+                            </div>
+                        </div>
+                        <div class="_26NCu">Extra charges may apply</div>
+                        <button class="_1gPB7" (click)="checkout()">
+                            <a style="color:white ">Checkout →</a>
+                        </button>
+
+                    </div>
+                    <br/>
+                    <span style="text-align: center;">version:19.04.2022</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!--header end-->
+
+<div *ngIf="signup" class="ReactModalPortal sign">
+    <div class="ReactModal__Overlay ReactModal__Overlay--after-open" style="position: fixed; inset: 0px; background-color: rgba(255, 255, 255, 0.75);    z-index: 9999;">
+        <div class="ReactModal__Content ReactModal__Content--after-open bottom-modal" tabindex="-1" role="dialog">
+            <div class="otp-verify-pop-up-design">
+                <span class="close-icon-popup" aria-hidden="true" (click)="remove()">
+                    <img src="https://cdn.dotpe.in/cfe/image/ic-close.svg">
+                </span>
+                <h2 class="header-otp-message">Sign up
+
+                    <p class="_3p4qh">or
+                        <span style="  color: #143b96;"> login to your account</span>
+                    </p>
+                </h2>
+
+                <div class="mt-20 md-text14 md-f500 otp-resend-text">
+
+                    <div>
+                        <form [formGroup]="LoginForm">
+                            <div>
+                                <div class="_3Um38 _3lG1r">
+                                    <label class="_1Cvlf " for="mobile">Phone number</label>
+                                    <input class="_381fS" type="tel" name="mobile" id="mobile" tabindex="1" autocomplete="off" formControlName="user_phone" value="">
+                                    <div class="_2EeI1"></div>
+
+                                </div>
+                                <div class="_3Um38 _3lG1r">
+                                    <label class="_1Cvlf " for="name">Name</label>
+                                    <input class="_381fS" type="text" name="name" id="name" tabindex="2" autocomplete="off" value="" formControlName="first_name">
+                                    <div class="_2EeI1"></div>
+
+                                </div>
+                                <div class="_3Um38 _3lG1r">
+                                    <label class="_1Cvlf " for="email">Email</label>
+                                    <input class="_381fS" type="email" name="email" id="email" tabindex="3" autocomplete="off" formControlName="user_email" value="">
+                                    <div class="_2EeI1"></div>
+
+                                </div>
+
+                            </div>
+                            <!-- <button class="_3GOZo">Have a referral code?</button> -->
+                            <div class="_25qBi _2-hTu">
+                                <button _ngcontent-eno-c30="" type="button" (click)="continue()" class="confirm-cta-btn mt-50 primary-cta md-text16 md-f700 btn btn-primary btn-block">CONTINUE</button>
+                            </div>
+                            <!-- <div class="_1FvHn">By creating an account, I accept the
+                                <a class="IBw2l" href="/terms-and-conditions">Terms &amp; Conditions</a> &amp;
+                                <a class="IBw2l" href="/privacy-policy">Privacy Policy</a>
+                            </div> -->
+                        </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- otp popup -->
+<div *ngIf="otp" class="ReactModalPortal">
+    <div class="ReactModal__Overlay ReactModal__Overlay--after-open" style="position: fixed; inset: 0px; background-color: rgba(255, 255, 255, 0.75);">
+        <div class="ReactModal__Content ReactModal__Content--after-open bottom-modal" tabindex="-1" role="dialog">
+            <div class="otp-verify-pop-up-design">
+                <span class="close-icon-popup" aria-hidden="true" (click)="otpremove()">
+                    <img src="https://cdn.dotpe.in/cfe/image/ic-close.svg">
+                </span>
+                <h2 class="header-otp-message">Enter OTP Sent to
+
+                    <span class="contact-detail-otp">{{phoneNumber}}</span>
+                </h2>
+                <ngx-otp-input [config]="otpInputConfig" (fill)="handleFillEvent($event)" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                </ngx-otp-input>
+                <div style="display: grid; grid-template-columns: repeat(1, 1fr); gap: 10px; margin-top: 25px;">
+                    <!-- / <div style="display: flex; align-items: center;"> -->
+                    <!-- <input  class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                            <span> </span> -->
+
+                    <!-- <div style="display: flex; align-items: center;">
+                            <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                            <span> </span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                            <span> </span>
+                        </div>
+                        <div style="display: flex; align-items: center;">
+                            <input class="" type="tel" maxlength="1" value="" style="width: 52px; text-align: center; height: 52px; border: 1px solid rgb(255, 255, 255); border-radius: 12px; box-shadow: none; outline: none; font-size: 24px; font-weight: 400; background-color: rgb(246, 246, 246); padding: 5px 5px 5px 0px;">
+                        </div> -->
+                    <!-- </div> -->
+                    <div class="mt-20 md-text14 md-f500 otp-resend-text">RESEND OTP</div>
+                    <div class="continue-button">
+                        <button type="button" (click)="verify()" class="confirm-cta-btn mt-50 primary-cta md-text16 md-f700  btn btn-primary btn-block">CONTINUE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

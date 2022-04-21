@@ -1,0 +1,166 @@
+/* NEED TO STANDARDIZE THE PRIMARY AND SECONDARY COLOR ELEMENTS OVER WEBSITE*/
+:root {
+    --primary-color: #000;
+    --secondary-color: #000000;
+  }
+  
+  .social *,
+  .heights * {
+    font-family: "Lato", sans-serif;
+  }
+  
+  .rmz * {
+    font-family: 'Krub', sans-serif;
+  }
+  
+  .starbucks * {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .tacobell *,
+  .taco * {
+    font-family: 'Josefin Sans', sans-serif;
+  }
+  
+  html {
+  
+    input,
+    textarea {
+      &:focus {
+        border-color: var(--primary-color) !important;
+        color: var(--primary-color) !important;
+      }
+    }
+  
+    input[type="radio"]:checked+label {
+      &::after {
+        background: none repeat scroll 0 0 var(--primary-color) !important;
+        background-color: var(--primary-color) !important;
+      }
+  
+      &::before {
+        border-color: var(--primary-color) !important;
+      }
+    }
+  
+    input[type="checkbox"]:checked~.custom-control-label {
+      &::after {
+        background-image: url("//cdn.dotpe.in/cfe/image/icon-check-white.png") !important;
+      }
+  
+      &::before {
+        background-color: var(--primary-color) !important;
+        border-color: var(--primary-color) !important;
+      }
+    }
+  
+    .primary-cta {
+      background-color: var(--primary-color) !important;
+      border-color: var(--primary-color) !important;
+      color: #ffffff !important;
+    }
+  
+    .secondary-cta {
+      background-color: #ffffff !important;
+      border: 1px solid var(--primary-color) !important;
+      color: var(--primary-color) !important;
+    }
+  
+    .simple-custom-cta {
+      border: 1px solid var(--primary-color) !important;
+      color: var(--primary-color) !important;
+    }
+  
+    .primary-cta,
+    .secondary-cta {
+      &.disable {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+  
+    .md-pc {
+      color: var(--primary-color) !important;
+    }
+  
+    .md-sc {
+      color: var(--secondary-color) !important;
+    }
+  
+    .md-pbg {
+      // for primary background color
+      background: var(--primary-color) !important;
+      background-color: var(--primary-color) !important;
+    }
+  
+    .md-sbg {
+      // for secondary background color
+      background: var(--secondary-color) !important;
+      background-color: var(--secondary-color) !important;
+    }
+  
+    .md-pbc {
+      // for setting primary border color
+      border-color: var(--primary-color) !important;
+    }
+  
+    .change-cta {
+      color: var(--primary-color);
+    }
+  }
+  
+  .BIRYANI,
+  .Biryani,
+  .biryani {
+  
+    input,
+    textarea {
+      &:focus {
+        border-color: #2d2a26 !important;
+        color: #000000 !important;
+      }
+    }
+  
+    .md-pc {
+      color: #000 !important;
+    }
+  }
+  
+  .Smoke,
+  .smoke,
+  .Starbucks,
+  .starbucks,
+  .freshmenu,
+  .tacobell,
+  .taco,
+  .bakers,
+  .heights,
+  .tamak,
+  .dunkin {
+  
+    input,
+    textarea {
+      &:focus {
+        border-color: #2d2a26 !important;
+        color: #2d2a26 !important;
+      }
+    }
+  }
+  
+  // .Vishal, .vishal, .mcdonalds {
+  //   .merchant-delivery-message {
+  //     display: block;
+  //   }
+  // }
+  
+  .freshmenu,
+  .mcdonalds {
+    .primary-cta {
+      background-color: var(--primary-color) !important;
+      color: #000000 !important;
+    }
+  
+    .md-pc {
+      color: #000 !important;
+    }
+  }

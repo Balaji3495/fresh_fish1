@@ -1,0 +1,39 @@
+/* NEED TO STANDARDIZE THE PRIMARY AND SECONDARY COLOR ELEMENTS OVER WEBSITE*/
+:root {
+    --cluster-primary-color: #000000;
+    --cluster-secondary-color: #000000;
+  }
+  
+  html {
+    .fc-primary-cta {
+      background-color: var(--cluster-primary-color) !important;
+      border-color: var(--cluster-primary-color) !important;
+      color: #ffffff !important;
+    }
+    .fc-secondary-cta {
+      background-color: #ffffff !important;
+      border: 1px solid var(--cluster-primary-color) !important;
+      color: var(--cluster-primary-color) !important;
+    }
+    .fc-primary-cta,
+    .fc-secondary-cta {
+      &.disable {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+    }
+    .fc-md-pc {
+      color: var(--cluster-primary-color) !important;
+    }
+    .fc-md-pbg { // for primary background color
+      background: var(--cluster-primary-color) !important;
+      background-color: var(--cluster-primary-color) !important;
+    }
+    .fc-md-sbg { // for secondary background color
+      background: var(--cluster-secondary-color) !important;
+      background-color: var(--cluster-secondary-color) !important;
+    }
+    .fc-md-pbc { // for setting primary border color
+      border-color: var(--cluster-primary-color) !important;
+    }
+  }

@@ -1,0 +1,51 @@
+.header-wrapper{
+    height: auto;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 50;
+    transition: all 0.3s ease-in;
+    header{
+        background-color: rgba(0,0,0,0.7);
+        display: flex !important;
+        justify-content: space-between;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 10px;
+        box-shadow: 0 3px 4px 0 rgba(0,0,0,.24), 0 1px 1px 0 rgba(0,0,0,.12);
+        .header-title{
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            margin: 5px 0;
+            line-height: 1.4;
+            .back-button{
+                filter: invert(100%) sepia(4%) saturate(7436%) hue-rotate(305deg) brightness(108%) contrast(106%);
+                padding: 0 10px 0 0;
+                img{
+                    height: 20px;
+                }
+            }
+        }
+        .serach-bar {
+            margin-top: 4px;
+        }
+    }
+    &.hide{
+        transition: all 0.3s ease-in;
+        top:-100px;
+        .wallet-info-wrapper{
+            transition: all 0.3s ease-in;
+            margin-top:60px;
+        }
+    }
+}
+
+.static-header{
+    header{
+        .header-title{
+            margin-left:auto;
+            margin-right:auto;
+        }
+    }
+}

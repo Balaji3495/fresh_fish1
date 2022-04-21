@@ -1,0 +1,29 @@
+// 
+.store-header-main-wrapper .store.store-location-header.banners {
+  /* width: 100%; */
+  /* padding-left: 13px; */
+  /* padding-right: 8px; */
+  text-transform: capitalize;
+  align-items: center;
+  padding-top: 25px;
+}
+.store-location-header .logo-wrap {
+  width: 10vw;
+  height: 10vw;
+  border: 1px solid #f2f2f2;
+  border-radius: 4px;
+  margin: 0 3px 10px 5px;
+  text-align: center;
+  background-color: #fff;
+  padding: 0;
+}
+.store-location-header .logo-wrap img{
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  min-width: 100%;
+  -webkit-filter: none!important;
+  filter: none!important;
+  object-fit: contain;
+  padding: 1px;
+}
