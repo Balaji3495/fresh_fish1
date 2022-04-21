@@ -73,10 +73,10 @@ export class HeaderComponent implements OnInit {
   Recom:any=[];
   ngOnInit(): void {
 var data= JSON.parse(sessionStorage.getItem('cart1')|| '{}');
-if (data){
-   this.cartProduct=data;
+if (data.length<=1){
+  this.cartProduct=data;
 }
-console.log(data)
+console.log(data.length)
 // sessionStorage.removeItem('cart')
 console.log("sd",this.cartProduct)
   
