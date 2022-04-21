@@ -14,13 +14,17 @@ export class HeaderComponent implements OnInit {
   scroll: any;
   menubar: boolean=false;
   LoginForm:FormGroup;
+  phoneForm:FormGroup;
   phoneNumber:any;
-  totalAmount:any;
+  totalAmount=0;
+  log:boolean=false;
+  amt:any;
   otpNumber:any;
   userId:any;
   userName:any;
   otpDAta:any;
   otpvalue:any;
+  addTotal:any=[];
   quantity : number=0;
   cartProduct:any=[];
   userHead:boolean =false;
@@ -39,14 +43,24 @@ export class HeaderComponent implements OnInit {
   constructor(private route:Router,private dashboardService:DashboardService,private formBuilder:FormBuilder) { 
     this.LoginForm = this.formBuilder.group({
       first_name: ['', Validators.required],
-      user_email: ['', Validators.required,],
+      user_email: ['', [Validators.required, Validators.pattern(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)]],
       user_phone:['', Validators.required,],
       last_name: [''],
       date_of_reg:new Date(),
             user_type:  ['1'],
             ref_code:  [''],
+    });
+    this.phoneForm = this.formBuilder.group({
+      first_name: ['',],
+      user_email: ['',],
+      user_phone:['',],
+      last_name: [''],
+      date_of_reg:new Date(),
+            user_type:  ['1'],
+            ref_code:  [''],
     })
-  }
+  };
+
   scrollDistance: any;
   target: any;
   use:any;
@@ -58,6 +72,14 @@ export class HeaderComponent implements OnInit {
   scrollDist:any;
   Recom:any=[];
   ngOnInit(): void {
+var data= JSON.parse(sessionStorage.getItem('cart1')|| '{}');
+if (data){
+   this.cartProduct=data;
+}
+console.log(data)
+// sessionStorage.removeItem('cart')
+console.log("sd",this.cartProduct)
+  
     this.userform.push(
       {
         "user_id":""
@@ -172,6 +194,8 @@ closeData()
 }
 checkout(){
   this.route.navigate(['/cart']);
+  sessionStorage.setItem('cart', JSON.stringify(this.cartProduct));
+
 }
 
 popsignup()
@@ -181,6 +205,10 @@ popsignup()
 remove(){
   this.signup=false;
 }
+removelog()
+{
+  this.log=false;
+}
 
 
 continue()
@@ -188,6 +216,7 @@ continue()
   if (this.LoginForm.valid) {
   this.signup=false;
   this.otp=true;
+  sessionStorage.setItem('login', JSON.stringify(true));
   this.dashboardService.login(this.LoginForm.value).subscribe((data:any)=>{
     this.phoneNumber=data['Data'].user_details.user_phone;
     this.otpNumber =data['Data'].user_details.otp;
@@ -196,7 +225,7 @@ continue()
     sessionStorage.setItem('user', JSON.stringify(data));
 
   });
-
+console.log(this.userName)
   this.dashboardService.dashboardList(this.userId).subscribe((data:any) => {
     
   });
@@ -232,22 +261,64 @@ handleFillEvent(value: string): void {
 poplogin()
 {
   this.otpNumber=123456;
-  this.otp=true;
+  this.log=true;
 }
 increment(i:any){
   console.log(i.quantity)
-
+  
  i.quantity=i.quantity+1;
- this.totalAmount=i.product_price* i.quantity
- 
+ var valueAmount= i.product_price;
+i.amount= valueAmount *i.quantity
+
+
+console.log(this.cartProduct)
+
+this.amountFuction();
+this.amt=this.totalAmount;
+console.log(this.addTotal)
 
 }
+
 decrement(i:any){
   i.quantity=i.quantity-1;
-  this.totalAmount=i.product_price* i.quantity
+  var valueAmount= i.product_price;
+  var data=this.totalAmount
+  i.amount= valueAmount *i.quantity
+  this.totalAmount=data-i.amount
+  let dta = this.cartProduct.findIndex((pl:any) => pl.quantity === 0);
+  console.log(dta)   
+  if (dta > -1) {
+     this.cartProduct.splice(dta, 1);
+    console.log('remove',this.cartProduct)
+
+  }
+  this.amountFuction();
+this.amt=this.totalAmount;
+
+}
+login(){
+  if (this.phoneForm.valid) {
+    this.log=false;
+    this.otp=true;
+    sessionStorage.setItem('login', JSON.stringify(true));
+    this.dashboardService.login(this.phoneForm.value).subscribe((data:any)=>{
+      this.phoneNumber=data['Data'].user_details.user_phone;
+      this.otpNumber =data['Data'].user_details.otp;
+      this.userName =data['Data'].user_details.first_name;
+      this.userId=data['Data'].user_details._id
+      sessionStorage.setItem('user', JSON.stringify(data));
+  
+    });
+  
+    this.dashboardService.dashboardList(this.userId).subscribe((data:any) => {
+      
+    });
+  }
 }
 addcart(item:any){
  this.quantity=1;
+ 
+
   console.log(item)
   this.totalAmount=item.product_price
   this.cartProduct.push({
@@ -255,9 +326,24 @@ addcart(item:any){
    "product_price":item.product_price,
     "quantity":this.quantity,
    "id":item._id,
+   "amount":item.product_price,
   
 
   });
+  this.amountFuction();
+  this.amt=this.totalAmount;
+    
+ console.log (this.amt)
   console.log(this.cartProduct)
+}
+amountFuction(){
+
+   this.totalAmount =  0;
+  for(let count=0;count<this.cartProduct.length;count++){
+    this.totalAmount +=this.cartProduct[count].amount;
+  }
+  return this.totalAmount;
+ 
+
 }
 }

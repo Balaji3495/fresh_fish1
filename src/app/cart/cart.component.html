@@ -227,25 +227,25 @@
         <div class="cart-wrapper">
             <div class="cart-section">
                 <div class="cart-heading">
-                    <span class="cart-item-text md-text23 md-f600 md-mb10">9 Items in Cart</span>
+                    <span class="cart-item-text md-text23 md-f600 md-mb10">{{cartProduct.length}} Items in Cart</span>
                 </div>
                 <div class="cart-item-wrapper">
-                    <div class="single-cart-data">
+                    <div class="single-cart-data" *ngFor="let item of cartProduct; let i ofindex">
                         <div class="store-menu-product-item-wrap   ">
                             <div class="store-image-social-icon-wrapper">
                                 <div class="social-proofing-wrapper"></div>
                             </div>
                             <div class="item">
                                 <div class="details">
-                                    <span class="title md-text16 md-f500">Mexican Beans &amp; Greens Salad</span>
+                                    <span class="title md-text16 md-f500">{{item.product_title}}</span>
                                     <div class="add-btn-container   ">
                                         <div class="increment-decrement-btn-container">
                                             <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
+                                                <i class="fa fa-minus" (click)="decrement(i)"></i>
                                             </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
+                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">{{item.quantity}}</div>
                                             <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
+                                                <i class="fa fa-plus" (click)="increment(i)"></i>
                                             </div>
                                         </div>
                                         <div class="custmisable-btn md-text10 md-c727272">customizable</div>
@@ -254,7 +254,7 @@
                                 <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
                                 <div class="price-quantity-container">
                                     <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 375</span>
+                                        <span class="price md-text13 md-f600 md-c000000">₹ {{item.amount}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -263,262 +263,7 @@
                             <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681876-item-postpaid-description">House Mix Lettuce, Smashed Tortilla, Avocado, Garlic Sour Cream, Sweet Chilli Salsa Dressing</span>
                         </div>
                     </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Shawarma Bowl - Chicken</span>
-                                    <div class="add-btn-container   ">
-                                        <div class="increment-decrement-btn-container">
-                                            <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
-                                            </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
-                                            <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
-                                    </div>
-                                </div>
-                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 430</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681892-item-postpaid-description">Yellow Aromatic Pilaf Rice and Red Hot Sauce Served with Chicken Shawarma</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Skinny Caesar Salad - Chicken</span>
-                                    <div class="add-btn-container   ">
-                                        <div class="increment-decrement-btn-container">
-                                            <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
-                                            </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
-                                            <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
-                                    </div>
-                                </div>
-                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 380</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="1681894-item-postpaid-description">House Mix Lettuce, Garlic Croutons &amp; Marinated Tomatoes, Skinny Parmesan Yoghurt</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Fresh Mozzarella Salad</span>
-                                    <div class="add-btn-container   ">
-                                        <div class="increment-decrement-btn-container">
-                                            <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
-                                            </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
-                                            <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
-                                    </div>
-                                </div>
-                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 380</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2919255-item-postpaid-description">Marinated Tomatoes, Olives, Crispy Pasta, Basil-Roasted Garlic Dressing</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Fajita Bowl - Paneer</span>
-                                    <div class="add-btn-container   ">
-                                        <div class="increment-decrement-btn-container">
-                                            <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
-                                            </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
-                                            <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
-                                    </div>
-                                </div>
-                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 370</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="2944233-item-postpaid-description">Olive Rice, Fajita Vegetables, Marinated Beans and Sour Cream served with Fajita Paneer</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Winter Burrata</span>
-                                    <div class="add-btn-container   ">
-                                        <div class="increment-decrement-btn-container">
-                                            <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
-                                            </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
-                                            <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
-                                    </div>
-                                </div>
-                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 425</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3224502-item-postpaid-description">Maple Mustard Dressing, Spice Roasted Pumpkin, Chilli Jam and Pickled Cranberries</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Asian Dressing</span>
-                                    <div class="increment-decrement-btn-container   ">
-                                        <div class="md-pc">
-                                            <i class="fa fa-minus"></i>
-                                        </div>
-                                        <div class="md-text13 md-f700 md-pc cart-quantity-text">2</div>
-                                        <div class="md-pc">
-                                            <i class="fa fa-plus"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 175</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3287688-item-postpaid-description">120ML Serving | Consume within 2 - 3 Days | Always Keep Refrigerated</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Winter Bocconcini</span>
-                                    <div class="add-btn-container   ">
-                                        <div class="increment-decrement-btn-container">
-                                            <div class="md-pc">
-                                                <i class="fa fa-minus"></i>
-                                            </div>
-                                            <div class="md-pc md-text13 md-f700 cart-quantity-text">1</div>
-                                            <div class="md-pc">
-                                                <i class="fa fa-plus"></i>
-                                            </div>
-                                        </div>
-                                        <div class="custmisable-btn md-text10 md-c727272">customizable</div>
-                                    </div>
-                                </div>
-                                <div class="item-description md-text12 md-f600 md-c9ea6b9 item-selected-variants"></div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 380</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3459526-item-postpaid-description">Maple Mustard Dressing, Spice Roasted Pumpkin, Chilli Jam Marinated Bocconcini and Pickled Cranberries</span>
-                        </div>
-                    </div>
-                    <div class="single-cart-data">
-                        <div class="store-menu-product-item-wrap   ">
-                            <div class="store-image-social-icon-wrapper">
-                                <div class="social-proofing-wrapper"></div>
-                            </div>
-                            <div class="item">
-                                <div class="details">
-                                    <span class="title md-text16 md-f500">Roasted Garlic - Basil Hummus &amp; Granola</span>
-                                    <div class="increment-decrement-btn-container   ">
-                                        <div class="md-pc">
-                                            <i class="fa fa-minus"></i>
-                                        </div>
-                                        <div class="md-text13 md-f700 md-pc cart-quantity-text">1</div>
-                                        <div class="md-pc">
-                                            <i class="fa fa-plus"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="price-quantity-container">
-                                    <div class="price md-text13 md-f600 ">
-                                        <span class="price md-text13 md-f600 md-c000000">₹ 175</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="menu-item-description-container postpaid-description  ">
-                            <span class="menu-item-description md-c535e65 md-ml15 md-f500 md-text12" id="3530842-item-postpaid-description">Toasted Rolled Oats, Tapioca Crisps, Melon Seeds with Roasted Garlic - Basil Hummus</span>
-                        </div>
-                    </div>
+                  
                 </div>
             </div>
             <div class="promotion-section">
@@ -532,7 +277,7 @@
                 <div class="price-detail">
                     <div class="price-wrapper md-mt10">
                         <div>Item Total</div>
-                        <div>₹ 3265.00</div>
+                        <div>{{amt}}</div>
                     </div>
                     <div class="price-wrapper md-mt10">
                         <div>Delivery Fee</div>

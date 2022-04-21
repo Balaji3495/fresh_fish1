@@ -85,8 +85,8 @@
                         <li id="">
                             <a href="#recommended-item-1" data-target="#recommended-item-1">Recommended</a>
                         </li>
-                        <li id="" *ngFor="let item of menuList">
-                            <a href="{{item._id}}" data-target="#Slices">{{item.product_cate}}</a>
+                        <li id="" *ngFor="let item of Product_details">
+                            <a href="{{item.cat_id}}" data-target="#Slices">{{item.cat_name}}</a>
                         </li>
 
                     </ul>
@@ -356,7 +356,7 @@
                                                             </div>
                                                             <div class="add-btn-container  ">
                                                                 <div class="add-quantity-btn  md-pc md-text13 md-f700">
-                                                                    <div class="add-quantity-text">ADD</div>
+                                                                    <div class="add-quantity-text" (click)="addcart(sub)">ADD</div>
                                                                 </div>
                                                                 <div class="custmisable-btn md-text10 md-c727272">
                                                                     customizable</div>
@@ -1233,20 +1233,20 @@
             </div>
         </div>
         <div class="mobile-promotion-difference" style=""></div>
-        <div class="webiste-catalog-cart-view" style="display:none">
+        <div class="webiste-catalog-cart-view" *ngIf="cartProduct.length==0 || cartProduct.length==undefined " >
             <div class="empty-cart-heading">
                 <span class="empty-cart-text md-text20 md-f500">Your Cart Empty</span>
                 <img class="empty-cart" src="//cdn.dotpe.in/cfe/image/web-cart-gray.png" alt="">
             </div>
 
         </div>
-        <div class="webiste-catalog-cart-view">
+        <div class="webiste-catalog-cart-view" *ngIf="cartProduct.length!=0  ">
             <!-- <div class="empty-cart-heading"><span class="empty-cart-text md-text20 md-f500">Your Cart Empty</span><img
                     class="empty-cart" src="//cdn.dotpe.in/cfe/image/web-cart-gray.png" alt=""></div> -->
             <div class="_5ZwHn">
                 <div class="_1WKwn">
                     <div class="_2uq6N">Cart
-                        <div class="_1XFmX">2 Items</div>
+                        <div class="_1XFmX">{{cartProduct.length}} Items</div>
                     </div>
                     <div class="_1t-Al _1XUXj">
                         <div class="_3YMqW"></div>
@@ -1255,13 +1255,13 @@
                                 <div class="_2zsON"></div>
                                 <div class="MGAj1 _1AbNQ">
                                     <div class="_1qq2B _1E5jd" style="background-color: rgb(20 59 150);"></div>
-                                    <div>
+                                    <!-- <div>
                                         <div class="_3uVGZ">WELCOME50 eligible items</div>
                                         <div class="_5SQ9B">You just
                                             <span style="font-weight: 600;">saved ₹99</span> on these items!</div>
-                                    </div>
+                                    </div> -->
                                     <div class="scroll" style="overflow-y: scroll;
-                                    height: 70px;">
+                                    height: 203px;">
                                         <div class="_2bXOy" *ngFor="let item of cartProduct;let i ofindex">
                                             <div class="_3SG03">
                                                 <!-- <i class="styles_icon__m6Ujp _2MJB6 icon-Veg styles_iconVeg__shLxJ" role="presentation" aria-hidden="true" style="line-height: 1.2;"></i> -->
@@ -1280,7 +1280,7 @@
                                                     </div>
                                                     <div class="_1mx0r">
                                                         <!-- <span class="_2OlEg">194</span> -->
-                                                        <span class="_2W2U4">{{item.product_price}}</span>
+                                                        <span class="_2W2U4">{{i.amount}}</span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1319,7 +1319,7 @@
                         <div class="_161V3">
                             <div class="_1DWmI">Subtotal</div>
                             <div>
-                                <span>₹ {{totalAmount}}</span>
+                                <span>₹ {{amt}}</span>
                             </div>
                         </div>
                         <div class="_26NCu">Extra charges may apply</div>
@@ -1329,7 +1329,7 @@
 
                     </div>
                     <br/>
-                    <span style="text-align: center;">version:19.04.2022</span>
+                    <span style="text-align: center;">version:21.04.2022</span>
                 </div>
 
             </div>
@@ -1362,13 +1362,13 @@
                             <div>
                                 <div class="_3Um38 _3lG1r">
                                     <label class="_1Cvlf " for="mobile">Phone number</label>
-                                    <input class="_381fS" type="tel" name="mobile" id="mobile" tabindex="1" autocomplete="off" formControlName="user_phone" value="">
+                                    <input class="_381fS" type="tel" minlength="10" maxlength="10" name="mobile" id="mobile" tabindex="1" autocomplete="off" formControlName="user_phone" value="">
                                     <div class="_2EeI1"></div>
 
                                 </div>
                                 <div class="_3Um38 _3lG1r">
                                     <label class="_1Cvlf " for="name">Name</label>
-                                    <input class="_381fS" type="text" name="name" id="name" tabindex="2" autocomplete="off" value="" formControlName="first_name">
+                                    <input class="_381fS" type="text"  onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" name="name" id="name" tabindex="2" autocomplete="off" value="" formControlName="first_name">
                                     <div class="_2EeI1"></div>
 
                                 </div>
@@ -1389,6 +1389,49 @@
                                 <a class="IBw2l" href="/privacy-policy">Privacy Policy</a>
                             </div> -->
                         </form>
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="log" class="ReactModalPortal sign">
+    <div class="ReactModal__Overlay ReactModal__Overlay--after-open" style="position: fixed; inset: 0px; background-color: rgba(255, 255, 255, 0.75);    z-index: 9999;">
+        <div class="ReactModal__Content ReactModal__Content--after-open bottom-modal" tabindex="-1" role="dialog">
+            <div class="otp-verify-pop-up-design">
+                <span class="close-icon-popup" aria-hidden="true" (click)="removelog()">
+                    <img src="https://cdn.dotpe.in/cfe/image/ic-close.svg">
+                </span>
+                <h2 class="header-otp-message">Login
+
+                
+                </h2>
+
+                <div class="mt-20 md-text14 md-f500 otp-resend-text">
+
+                    <div>
+                  <form [formGroup]="phoneForm">
+                            <div>
+                                <div class="_3Um38 _3lG1r">
+                                    <label class="_1Cvlf " for="mobile">Phone number</label>
+                                    <input class="_381fS" type="tel" minlength="10" maxlength="10" name="mobile" id="mobile" tabindex="1" autocomplete="off" formControlName="user_phone" value="">
+                                    <div class="_2EeI1"></div>
+
+                                </div>
+                           
+                             
+
+                            </div>
+                            <!-- <button class="_3GOZo">Have a referral code?</button> -->
+                            <div class="_25qBi _2-hTu">
+                                <button _ngcontent-eno-c30="" type="button" (click)="login()" class="confirm-cta-btn mt-50 primary-cta md-text16 md-f700 btn btn-primary btn-block">CONTINUE</button>
+                            </div>
+                        </form>
+                      
                     </div>
 
 
