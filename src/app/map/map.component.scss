@@ -407,9 +407,11 @@
     padding: 20px;
     .brand-logo-container{
       img{
-        max-width: 120px !important;
-        max-height: 56px !important;
-        border-radius: 50%;
+        // max-width: 120px !important;
+        // max-height: 56px !important;
+        // border-radius: 50%;
+        width: 175px;
+        height: 85px;
       }
     }
   }
@@ -691,10 +693,10 @@
   }
 
   .brand-header {
-    background-color: #ffffff;
+    background-color: #143b96;
     box-shadow: none;
     width: 100%;
-    padding: 25px 70px !important;
+    padding: 15px 70px !important;
     height: auto;
     text-align: center;
     display: flex !important;

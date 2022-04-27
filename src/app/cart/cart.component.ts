@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import {PhoneComponent} from "../phone/phone.component"
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TemplatePortalDirective, ComponentPortal } from '@angular/cdk/portal';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { RouterModule, Routes, Router } from '@angular/router';
 import { NgxOtpInputConfig } from 'ngx-otp-input';
+// import {} from 'googlemaps';
+
+import { DashboardService } from 'src/app/provider/dashboard.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -11,13 +15,20 @@ import { NgxOtpInputConfig } from 'ngx-otp-input';
 })
 
 export class CartComponent implements OnInit {
+  user:any;
+  phoneForm:FormGroup;
   userName:any;
   phoneNumber:any;
   otpvalue:any;
   otpNumber:any;
   cartProduct:any;
   totalAmount:any;
+  deliveryFee=50;
+  packagingFee=0;
+  tax=100;
+  toPay:any;
   amt:any;
+ 
   otpInputConfig: NgxOtpInputConfig = {
     otpLength: 6,
     autofocus: true,
@@ -27,15 +38,26 @@ export class CartComponent implements OnInit {
       inputFilled: 'my-super-filled-class',
     
     },
+   
   };
-  constructor( private overlay: Overlay,private route: Router) { }
+  constructor( private overlay: Overlay,private dashboardService:DashboardService,private route: Router,private formBuilder:FormBuilder) {
+    this.phoneForm = this.formBuilder.group({
+ 
+      user_phone:['',Validators.required],
+      ref_code:  [''],
+        
+    })
+   }
   popup:boolean =false;
   otp:boolean=false;
+  userId:any;
   ngOnInit(): void {
+   
     var log=JSON.parse(sessionStorage.getItem('login')|| '{}');
     if(log==true){
       this.userName=JSON.parse(sessionStorage.getItem('user')|| '{}');
-
+      console.log(this.userName)
+this.user=this.userName['Data'].user_details.first_name;
       this.phoneNumber=this.userName['Data'].user_details.user_phone;
       this.otpNumber =this.userName['Data'].user_details.otp;
     }
@@ -43,10 +65,12 @@ export class CartComponent implements OnInit {
     this.cartProduct=JSON.parse(sessionStorage.getItem('cart')|| '{}');
     console.log(this.cartProduct)
     this.amountFuction();
-    this.amt=this.totalAmount 
+    this.amt=this.totalAmount;
+    this.toPayAmount()
 
  
-;
+
+
   }
   openComponentOverlay() {
   
@@ -77,8 +101,27 @@ export class CartComponent implements OnInit {
   }
   save()
   {
-    this.popup=false;
-    this.otp=true;
+    if (this.phoneForm.valid) {
+   
+      sessionStorage.setItem('login', JSON.stringify(true));
+      this.dashboardService.phoneLogin(this.phoneForm.value).subscribe((data:any)=>{
+        if(data['Status']=="Success"){
+          this.popup=false;
+          this.otp=true;
+        
+        this.phoneNumber=data['Data'].user_details.user_phone;
+        this.otpNumber =data['Data'].user_details.otp;
+        this.userName =data['Data'].user_details.first_name;
+        this.userId=data['Data'].user_details._id
+        sessionStorage.setItem('user', JSON.stringify(data));
+        }
+      });
+    
+      this.dashboardService.dashboardList(this.userId).subscribe((data:any) => {
+        
+      });
+    }
+
   }
   verify(){
     console.log(this.otpNumber)
@@ -110,7 +153,9 @@ export class CartComponent implements OnInit {
   console.log(this.cartProduct)
   
   this.amountFuction();
+
   this.amt=this.totalAmount;
+  this.toPayAmount();
 
   }
   decrement(i:any){
@@ -129,10 +174,12 @@ export class CartComponent implements OnInit {
     }
     this.amountFuction();
   this.amt=this.totalAmount;
+  this.toPayAmount();
   sessionStorage.setItem('cart', JSON.stringify(this.cartProduct));
   }
   amountFuction(){
     var dd=this.cartProduct
+  
    var data =sessionStorage.setItem('cart1', JSON.stringify(dd));
     console.log(data)
     this.totalAmount =  0;
@@ -141,6 +188,13 @@ export class CartComponent implements OnInit {
    }
    return this.totalAmount;
    
-   
+  
  }
+
+ toPayAmount(){
+  this.toPay=this.amt+this.deliveryFee+this.tax+this.packagingFee;
+  console.log( this.toPay)
+
+ }
+ 
 }

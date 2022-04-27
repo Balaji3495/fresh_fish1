@@ -7,12 +7,12 @@
                     <img src="../../assets/img/logo.jpg" alt="">
                 </div>
                 <div class="location-address-container">
-                    <div class="merchant-name textAlignC md-mb16 md-text18 md-f500">Fresh Fish
+                    <!-- <div class="merchant-name textAlignC md-mb16 md-text18 md-f500">Fresh Fish
                         <span class="material-icons-outlined">
                             search
-                            <!-- <i class="fa fa-user fa-5x"></i> -->
+                            <-- <i class="fa fa-user fa-5x"></i> ->
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="" class="website-search-bar">
                         <div class="" class="header header-search md-p16">
@@ -39,8 +39,9 @@
                         <a (click)="poplogin()" class="x4bK8">Login</a>
                         <a (click)="popsignup()" class="r2iyh">Sign up</a>
                     </div>
-                    <div class="_2fX4J" *ngIf="userHead">
-                        <label class="x4bK8">{{userName}}</label>
+                    <div class="_2fX4J text-center" *ngIf="userHead">
+                            <label class="Welcome">Welcome</label><br>
+                        <label class="user">{{userName}}</label>
 
                     </div>
                 </div>
@@ -53,10 +54,10 @@
                     <div class="brand-logo-container">
                         <img class="b-logo" src="../../assets/img/logo.jpg" alt="">
                     </div>
-                    <div class="brand-name-container md-ml12 md-text16 md-f700">
+                    <!-- <div class="brand-name-container md-ml12 md-text16 md-f700">
                         Fresh Fishs
-                        <!-- <i class="fas fa-check"></i> -->
-                    </div>
+                        <!-- <i class="fas fa-check"></i> ->
+                    </div> -->
                 </div>
                 <div class="website-search-bar">
                     <div class="header header-search md-p16">
@@ -82,11 +83,14 @@
                 <span class="menu-heading md-text16 md-f700 md-pb15 md-pl8 md-mb16">MENU</span>
                 <div class="menu-list-wrapper">
                     <ul class="menu-list" id="menu">
-                        <li id="">
+                        <li id="" >
                             <a href="#recommended-item-1" data-target="#recommended-item-1">Recommended</a>
                         </li>
-                        <li id="" *ngFor="let item of Product_details">
-                            <a href="{{item.cat_id}}" data-target="#Slices">{{item.cat_name}}</a>
+                        <li  id="{{item.cat_id}}" *ngFor="let item of Product_details; let i = index"
+                        [ngClass]="{'active': selectedItem === i}"
+    [value]="item.value" 
+    (click)='selectedItem = i;'>
+                             {{item.cat_name}}
                         </li>
 
                     </ul>
@@ -262,7 +266,7 @@
                     </div>
                     <!-- <div class="combo-items-main-container md-pl11 md-pt32 md-mb20 d-none"></div> -->
                     <div class="category-container ">
-                        <div class="store-best-sell-items-wrap subcategory-items-wrap" id="recommended-item-1">
+                        <div class="subcategory-items-wrap store-best-sell-items-wrap " id="recommended-item-1">
                             <h2>Recommended Items</h2>
                             <div class="best-sell-items-container" *ngFor="let item of Recom; let i ofindex">
                                 <div class="best-sell-items-inner-container">
@@ -329,8 +333,8 @@
                         <div class="menu-category-items-wrap cat-top-item" style="">
                             <div *ngFor="let item of Product_details">
                                 <div id="{{item.cat_id}}" class="subcategory-items-wrap">
-                                    <div class="category-title" id="cat-id-214647">
-                                        <span class="md-mt5 md-ml5 md-mb35">{{item.cat_name}}</span>
+                                    <div  class="category-title" id="cat-id-214647">
+                                        <span  class="md-mt5 md-ml5 md-mb35">{{item.cat_name}}</span>
                                     </div>
                                     <div class="product-group-with-images">
                                         <div class="item-layout-panel " *ngFor="let sub of item.product_list">
@@ -1329,7 +1333,7 @@
 
                     </div>
                     <br/>
-                    <span style="text-align: center;">version:21.04.2022</span>
+                    <span style="text-align: center;">version:25.04.2022</span>
                 </div>
 
             </div>

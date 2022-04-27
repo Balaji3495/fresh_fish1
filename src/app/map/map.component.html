@@ -1,16 +1,16 @@
 <div class="delivery-location-map-view-main-container  butterheads">
     <div class="brand-header fixed">
-        <div class="back-to-home dfr">
-            <i class="fa fa-angle-left"></i>
+        <div class="back-to-home dfr" >
+            <i class="fa fa-angle-left" ></i>
             <div class="back-to-home-text">Back to home</div>
         </div>
         <div class="brand-logo-container">
             <img class="b-logo" src="../../assets/img/logo.jpg" alt="">
         </div>
-        <div class="md-text24 md-ml14 md-ml12 md-f700 merchant-name">Fresh Fish</div>
+        <!-- <div class="md-text24 md-ml14 md-ml12 md-f700 merchant-name">Fresh Fish</div> -->
     </div>
-    <div class="g-map " id="map" style="position: relative; overflow: hidden;">
-        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+    <div class="g-map " #mapElement id="map" style="position: relative; overflow: hidden;">
+        <!-- <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
             <div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;">
                 <div>
                     <button draggable="false" aria-label="Keyboard shortcuts" title="Keyboard shortcuts" type="button" style="background: none transparent; display: block; border: none; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; z-index: 1000002; outline-offset: 3px; right: 0px; bottom: 0px; transform: translateX(100%);"></button>
@@ -455,17 +455,17 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="target-icon">
         <img src="//cdn.dotpe.in/cfe/image/gps.png" alt="">
     </div>
     <div class="back-arrow">
-        <img src="//cdn.dotpe.in/cfe/image/ic-arrow-back.svg" class="close-button" alt="">
+        <img src="//cdn.dotpe.in/cfe/image/ic-arrow-back.svg" class="close-button" alt=""  >
     </div>
     <div class="bottom-section">
         <div class="back-container">
-            <div class="back-button-style md-text15 md-c9B9B9B md-f700">
+            <div class="back-button-style md-text15 md-c9B9B9B md-f700" (click)="location()">
                 <img src="//cdn.dotpe.in/cfe/image/menu-back.svg" alt=""> BACK</div>
         </div>
         <div class="section-heading md-f700 md-c191B26">Confirm Delivery Location

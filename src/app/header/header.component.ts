@@ -51,19 +51,17 @@ export class HeaderComponent implements OnInit {
             ref_code:  [''],
     });
     this.phoneForm = this.formBuilder.group({
-      first_name: ['',],
-      user_email: ['',],
-      user_phone:['',],
-      last_name: [''],
-      date_of_reg:new Date(),
-            user_type:  ['1'],
-            ref_code:  [''],
+ 
+      user_phone:['',Validators.required],
+      ref_code:  [''],
+        
     })
   };
-
+  selectedItem:any ;
   scrollDistance: any;
   target: any;
   use:any;
+  user:any
   userform:any=[];
   bannerImg:any=[];
   menuList:any=[];
@@ -72,9 +70,32 @@ export class HeaderComponent implements OnInit {
   scrollDist:any;
   Recom:any=[];
   ngOnInit(): void {
+    var log=JSON.parse(sessionStorage.getItem('login')|| '{}');
+    if(log==true){
+     
+      this.user=JSON.parse(sessionStorage.getItem('user')|| '{}');
+      console.log(this.userName)
+this.userName=this.user['Data'].user_details.first_name;
+      this.phoneNumber=this.user['Data'].user_details.user_phone;
+      this.otpNumber =this.user['Data'].user_details.otp;
+      this.userHead=true;
+    }
+
 var data= JSON.parse(sessionStorage.getItem('cart1')|| '{}');
-if (data.length<=1){
+console.log(data)
+if (0<data.length){
   this.cartProduct=data;
+  console.log("ssddd",this.cartProduct)
+  this.amountFuction();
+  this.amt=this.totalAmount;
+}
+var same=JSON.parse(sessionStorage.getItem('cart')|| '{}');
+console.log(same)
+if(0<same.length){
+  this.cartProduct=same;
+  console.log("sddd",this.cartProduct)
+  this.amountFuction();
+  this.amt=this.totalAmount
 }
 console.log(data.length)
 // sessionStorage.removeItem('cart')
@@ -136,6 +157,7 @@ $(window).scroll(function() {
   obj.scrollDistance = $(window)?.scrollTop();
 
   $('.subcategory-items-wrap').each(function(i) {
+    console.log(i)
     
       if ($(this).position().top <= obj.scrollDistance) {
           $('.menu-list li.active').removeClass('active');
@@ -143,6 +165,7 @@ $(window).scroll(function() {
       }
      
   });
+}).scroll();
   
 //   obj.elementPosition = $('.header-search').offset();
 //   if( obj.scrollDistance> obj.elementPosition.top){
@@ -150,7 +173,7 @@ $(window).scroll(function() {
 // } else {
 //  // $('.header-search').css('position','static');
 // }
-}).scroll();
+
 // obj.elementPosition = $('.header-search').offset();
 
 // $(window).scroll(function(){
@@ -198,6 +221,7 @@ checkout(){
 
 }
 
+
 popsignup()
 {
   this.signup=true;
@@ -212,7 +236,9 @@ removelog()
 
 
 continue()
+
 {
+  sessionStorage.removeItem('user');
   if (this.LoginForm.valid) {
   this.signup=false;
   this.otp=true;
@@ -290,7 +316,8 @@ decrement(i:any){
   if (dta > -1) {
      this.cartProduct.splice(dta, 1);
     console.log('remove',this.cartProduct)
-
+    sessionStorage.setItem('cart', JSON.stringify(this.cartProduct));
+    sessionStorage.setItem('cart1', JSON.stringify(this.cartProduct));
   }
   this.amountFuction();
 this.amt=this.totalAmount;
@@ -298,16 +325,18 @@ this.amt=this.totalAmount;
 }
 login(){
   if (this.phoneForm.valid) {
-    this.log=false;
-    this.otp=true;
+   
     sessionStorage.setItem('login', JSON.stringify(true));
-    this.dashboardService.login(this.phoneForm.value).subscribe((data:any)=>{
+    this.dashboardService.phoneLogin(this.phoneForm.value).subscribe((data:any)=>{
+      if(data['Status']=="Success"){
+        this.log=false;
+        this.otp=true;
       this.phoneNumber=data['Data'].user_details.user_phone;
       this.otpNumber =data['Data'].user_details.otp;
       this.userName =data['Data'].user_details.first_name;
       this.userId=data['Data'].user_details._id
       sessionStorage.setItem('user', JSON.stringify(data));
-  
+      }
     });
   
     this.dashboardService.dashboardList(this.userId).subscribe((data:any) => {
@@ -345,5 +374,9 @@ amountFuction(){
   return this.totalAmount;
  
 
+}
+activemenu(i:any)
+{
+  console.log("anu",i);
 }
 }

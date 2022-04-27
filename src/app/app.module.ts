@@ -15,7 +15,7 @@ import { PortalModule } from '@angular/cdk/portal';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxOtpInputModule } from "ngx-otp-input";
-
+// import { AgmCoreModule } from '@agm/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +35,9 @@ import { NgxOtpInputModule } from "ngx-otp-input";
     FormsModule,
     ReactiveFormsModule,
     NgxOtpInputModule
+    // AgmCoreModule.forRoot({
+    //   apiKey: 'AIzaSyDap8qav1flUsql0VWUYkjgB0noN0o_U1Y'
+    // }),
 
   ],
   providers:[{provide: LocationStrategy, useClass: HashLocationStrategy}],

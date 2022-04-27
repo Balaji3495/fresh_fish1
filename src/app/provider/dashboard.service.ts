@@ -16,4 +16,8 @@ export class DashboardService {
     return this.http.post(environment.baseurl + '/userdetails/create ',data,)
 
   }
+  phoneLogin(data:any){
+    return this.http.post(environment.baseurl + '/userdetails/create ',data,)
+
+  }
 }

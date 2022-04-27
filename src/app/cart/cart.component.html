@@ -7,6 +7,13 @@
 
             <img alt="" class="logo-image" src="../../assets/img/logo.jpg">
         </div>
+        <div class="store-location-container-web md-pt10">
+        <div class="_2fX4J text-center" >
+                <label class="Welcome">Welcome</label><br>
+            <label class="user">{{user}}</label>
+
+        </div>
+        </div>
         <!-- <div class="merchant-name-wrapper">
             <div class="merchant-name primary-cta md-f700 md-text32 md-ml10"></div>
             <div class="change-store-wrapper primary-cta md-f500 md-text14 md-ml10 md-mt5">
@@ -40,14 +47,16 @@
                                     <img class="md-ml5 wa-logo" src="//cdn.dotpe.in/cfe/image/whatsapp.png">
                                     <br> Number</h2>
                                 <span class="small-heading">We need this number to provide you with all the necessary updates of your order.</span>
+                                <form [formGroup]="phoneForm">
                                 <div class="form-group">
-                                    <input type="text" class="form-control user-name md-pc" placeholder="Customer Name " value="balaji">
+                                    <input type="text" class="form-control user-name md-pc" placeholder="Customer Name " value="{{user}}">
                                 </div>
                                 <div class="form-group ">
-                                    <input type="number" class="form-control md-pc" placeholder="Whatsapp Number" value="{{phoneNumber}}">
+                                    <input type="number" minlength="10" maxlength="10" class="form-control md-pc" formControlName="user_phone" placeholder="Whatsapp Number" value="{{phoneNumber}}">
                                     <img src="//cdn.dotpe.in/cfe/image/whatsapp.png">
                                 </div>
                                 <button (click)="save()" class="custom-btn ">Save</button>
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -277,25 +286,25 @@
                 <div class="price-detail">
                     <div class="price-wrapper md-mt10">
                         <div>Item Total</div>
-                        <div>{{amt}}</div>
+                        <div>₹{{amt}}</div>
                     </div>
                     <div class="price-wrapper md-mt10">
                         <div>Delivery Fee</div>
-                        <div>₹ 100.00</div>
+                        <div>₹{{deliveryFee}}</div>
                     </div>
                     <div class="price-wrapper md-mt10">
                         <div>Packaging Fee</div>
-                        <div>₹ 163.25</div>
+                        <div>₹{{packagingFee}}</div>
                     </div>
                     <div class="price-wrapper md-mt10">
                         <div>Tax &amp; other charges</div>
-                        <div>₹ 181.30</div>
+                        <div>₹{{tax}}</div>
                     </div>
                 </div>
                 <div class="total-pay-wrapper md-mt10">
                     <div class="price-wrapper">
                         <div class="md-text16 md-f700">To Pay</div>
-                        <div class="md-text16 md-f700">₹ 3709.55</div>
+                        <div class="md-text16 md-f700">₹{{toPay}}</div>
                     </div>
                 </div>
             </div>
