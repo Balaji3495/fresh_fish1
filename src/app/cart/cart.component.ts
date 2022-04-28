@@ -51,10 +51,12 @@ export class CartComponent implements OnInit {
   popup:boolean =false;
   otp:boolean=false;
   userId:any;
+  userHead:boolean=false;
   ngOnInit(): void {
    
     var log=JSON.parse(sessionStorage.getItem('login')|| '{}');
     if(log==true){
+      this.userHead=true;
       this.userName=JSON.parse(sessionStorage.getItem('user')|| '{}');
       console.log(this.userName)
 this.user=this.userName['Data'].user_details.first_name;
@@ -145,7 +147,7 @@ this.user=this.userName['Data'].user_details.first_name;
     sessionStorage.removeItem('cart')
     console.log(i.quantity)
     
-   i.quantity=i.quantity+1;
+   i.quantity=i.quantity+0.5;
    var valueAmount= i.product_price;
   i.amount= valueAmount *i.quantity
   
@@ -160,7 +162,7 @@ this.user=this.userName['Data'].user_details.first_name;
   }
   decrement(i:any){
     sessionStorage.removeItem('cart')
-    i.quantity=i.quantity-1;
+    i.quantity=i.quantity-0.5;
     var valueAmount= i.product_price;
     var data=this.totalAmount
     i.amount= valueAmount *i.quantity
@@ -196,5 +198,10 @@ this.user=this.userName['Data'].user_details.first_name;
   console.log( this.toPay)
 
  }
+ logout(){
+  sessionStorage.setItem('login', JSON.stringify(false));
+  sessionStorage.removeItem('user');
+this.userHead=false;
+}
  
 }

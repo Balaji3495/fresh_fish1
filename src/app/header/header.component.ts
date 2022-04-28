@@ -292,7 +292,7 @@ poplogin()
 increment(i:any){
   console.log(i.quantity)
   
- i.quantity=i.quantity+1;
+ i.quantity=i.quantity+0.5;
  var valueAmount= i.product_price;
 i.amount= valueAmount *i.quantity
 
@@ -306,7 +306,7 @@ console.log(this.addTotal)
 }
 
 decrement(i:any){
-  i.quantity=i.quantity-1;
+  i.quantity=i.quantity-0.5;
   var valueAmount= i.product_price;
   var data=this.totalAmount
   i.amount= valueAmount *i.quantity
@@ -345,7 +345,7 @@ login(){
   }
 }
 addcart(item:any){
- this.quantity=1;
+ this.quantity=0.5;
  
 
   console.log(item)
@@ -378,5 +378,10 @@ amountFuction(){
 activemenu(i:any)
 {
   console.log("anu",i);
+}
+logout(){
+  sessionStorage.setItem('login', JSON.stringify(false));
+  sessionStorage.removeItem('user');
+  this.userHead=false;
 }
 }

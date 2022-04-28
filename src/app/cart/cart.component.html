@@ -8,10 +8,25 @@
             <img alt="" class="logo-image" src="../../assets/img/logo.jpg">
         </div>
         <div class="store-location-container-web md-pt10">
-        <div class="_2fX4J text-center" >
+        <div class="_2fX4J text-center" *ngIf="userHead">
+                <div class="wel">
                 <label class="Welcome">Welcome</label><br>
-            <label class="user">{{user}}</label>
-
+            <label class="Welcome">{{user}}</label>
+            <div class="logout">
+                    <div class="_3FHXl">
+                        <span class="NYvnA"> </span>
+              
+                        <div class="_3AzrP _2ISZj">
+                            <div class="_1Hnxx">
+                                <div class="_2PwHU">
+                                    <a class="_1Dvqs">Profile</a>
+                                    <a class="_1Dvqs" (click)="logout()">Logout</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+</div>
         </div>
         </div>
         <!-- <div class="merchant-name-wrapper">

@@ -40,10 +40,29 @@
                         <a (click)="popsignup()" class="r2iyh">Sign up</a>
                     </div>
                     <div class="_2fX4J text-center" *ngIf="userHead">
-                            <label class="Welcome">Welcome</label><br>
-                        <label class="user">{{userName}}</label>
-
+                        <div>
+                            <div class="wel">
+                            <label class="Welcome">Welcome</label>
+                            <br>
+                            <label class="Welcome">{{userName}}</label>
+                            <div class="logout">
+                                    <div class="_3FHXl">
+                                        <span class="NYvnA"> </span>
+                              
+                                        <div class="_3AzrP _2ISZj">
+                                            <div class="_1Hnxx">
+                                                <div class="_2PwHU">
+                                                    <a class="_1Dvqs">Profile</a>
+                                                    <a class="_1Dvqs" (click)="logout()">Logout</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div></div>
+                        
                     </div>
+
                 </div>
             </div>
         </div>
@@ -83,14 +102,12 @@
                 <span class="menu-heading md-text16 md-f700 md-pb15 md-pl8 md-mb16">MENU</span>
                 <div class="menu-list-wrapper">
                     <ul class="menu-list" id="menu">
-                        <li id="" >
+                        <li id="">
                             <a href="#recommended-item-1" data-target="#recommended-item-1">Recommended</a>
                         </li>
-                        <li  id="{{item.cat_id}}" *ngFor="let item of Product_details; let i = index"
-                        [ngClass]="{'active': selectedItem === i}"
-    [value]="item.value" 
-    (click)='selectedItem = i;'>
-                             {{item.cat_name}}
+                        <li id="{{item.cat_id}}" *ngFor="let item of Product_details; let i = index" [ngClass]="{'active': selectedItem === i}" [value]="item.value"
+                            (click)='selectedItem = i;'>
+                            {{item.cat_name}}
                         </li>
 
                     </ul>
@@ -292,8 +309,8 @@
                                                         <div class="add-btn-container  ">
                                                             <div class="add-quantity-btn  md-pc md-text13 md-f700">
                                                                 <div class="add-quantity-text" (click)="addcart(item)">ADD</div>
-                                                               
-                                                                    <!-- <div *ngIf="cartProduct.length>0"class="increment-decrement-btn-container">
+
+                                                                <!-- <div *ngIf="cartProduct.length>0"class="increment-decrement-btn-container">
                                                                         <div class="md-pc">
                                                                             <i class="fa fa-minus"  (click)="increment(i)"></i>
                                                                         </div>
@@ -302,7 +319,7 @@
                                                                             <i class="fa fa-plus"  (click)="increment(i)"></i>
                                                                         </div>
                                                                     </div> -->
-                                                               
+
                                                             </div>
                                                             <div class="custmisable-btn md-text10 md-c727272">
                                                                 customizable</div>
@@ -333,8 +350,8 @@
                         <div class="menu-category-items-wrap cat-top-item" style="">
                             <div *ngFor="let item of Product_details">
                                 <div id="{{item.cat_id}}" class="subcategory-items-wrap">
-                                    <div  class="category-title" id="cat-id-214647">
-                                        <span  class="md-mt5 md-ml5 md-mb35">{{item.cat_name}}</span>
+                                    <div class="category-title" id="cat-id-214647">
+                                        <span class="md-mt5 md-ml5 md-mb35">{{item.cat_name}}</span>
                                     </div>
                                     <div class="product-group-with-images">
                                         <div class="item-layout-panel " *ngFor="let sub of item.product_list">
@@ -1237,7 +1254,7 @@
             </div>
         </div>
         <div class="mobile-promotion-difference" style=""></div>
-        <div class="webiste-catalog-cart-view" *ngIf="cartProduct.length==0 || cartProduct.length==undefined " >
+        <div class="webiste-catalog-cart-view" *ngIf="cartProduct.length==0 || cartProduct.length==undefined ">
             <div class="empty-cart-heading">
                 <span class="empty-cart-text md-text20 md-f500">Your Cart Empty</span>
                 <img class="empty-cart" src="//cdn.dotpe.in/cfe/image/web-cart-gray.png" alt="">
@@ -1333,7 +1350,7 @@
 
                     </div>
                     <br/>
-                    <span style="text-align: center;">version:25.04.2022</span>
+                    <span style="text-align: center;">version:27.04.2022</span>
                 </div>
 
             </div>
@@ -1366,13 +1383,15 @@
                             <div>
                                 <div class="_3Um38 _3lG1r">
                                     <label class="_1Cvlf " for="mobile">Phone number</label>
-                                    <input class="_381fS" type="tel" minlength="10" maxlength="10" name="mobile" id="mobile" tabindex="1" autocomplete="off" formControlName="user_phone" value="">
+                                    <input class="_381fS" type="tel" minlength="10" maxlength="10" name="mobile" id="mobile" tabindex="1" autocomplete="off"
+                                        formControlName="user_phone" value="">
                                     <div class="_2EeI1"></div>
 
                                 </div>
                                 <div class="_3Um38 _3lG1r">
                                     <label class="_1Cvlf " for="name">Name</label>
-                                    <input class="_381fS" type="text"  onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" name="name" id="name" tabindex="2" autocomplete="off" value="" formControlName="first_name">
+                                    <input class="_381fS" type="text" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" name="name" id="name" tabindex="2" autocomplete="off"
+                                        value="" formControlName="first_name">
                                     <div class="_2EeI1"></div>
 
                                 </div>
@@ -1412,22 +1431,23 @@
                 </span>
                 <h2 class="header-otp-message">Login
 
-                
+
                 </h2>
 
                 <div class="mt-20 md-text14 md-f500 otp-resend-text">
 
                     <div>
-                  <form [formGroup]="phoneForm">
+                        <form [formGroup]="phoneForm">
                             <div>
                                 <div class="_3Um38 _3lG1r">
                                     <label class="_1Cvlf " for="mobile">Phone number</label>
-                                    <input class="_381fS" type="tel" minlength="10" maxlength="10" name="mobile" id="mobile" tabindex="1" autocomplete="off" formControlName="user_phone" value="">
+                                    <input class="_381fS" type="tel" minlength="10" maxlength="10" name="mobile" id="mobile" tabindex="1" autocomplete="off"
+                                        formControlName="user_phone" value="">
                                     <div class="_2EeI1"></div>
 
                                 </div>
-                           
-                             
+
+
 
                             </div>
                             <!-- <button class="_3GOZo">Have a referral code?</button> -->
@@ -1435,7 +1455,7 @@
                                 <button _ngcontent-eno-c30="" type="button" (click)="login()" class="confirm-cta-btn mt-50 primary-cta md-text16 md-f700 btn btn-primary btn-block">CONTINUE</button>
                             </div>
                         </form>
-                      
+
                     </div>
 
 
