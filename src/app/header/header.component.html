@@ -1,7 +1,7 @@
 <!-- header page -->
 <div id="root" style="overflow-y: hidden;">
     <div class="website-header">
-        <div class="website-header-main-container" style="top: 0px;">
+        <div class="website-header-main-container" style="display:none" >
             <div class="website-main-header">
                 <div class="brand-logo-container">
                     <img src="../../assets/img/logo.jpg" alt="">
@@ -14,7 +14,7 @@
                         </span>
                     </div> -->
 
-                    <div class="" class="website-search-bar">
+                    <!-- <div class="" class="website-search-bar" >
                         <div class="" class="header header-search md-p16">
                             <span class="">
                                 <img class="search" src="//cdn.dotpe.in/cfe/image/search-grey.png" alt="">
@@ -23,6 +23,31 @@
 
                             </span>
                         </div>
+                    </div> -->
+
+                </div>
+               
+            </div>
+        </div>
+
+        <div class="website-search-logo">
+            <div class="website-fixed-container" content="width=device-width" initial-scale="1.0">
+                <div class="logo-name-wrapper">
+                    <div class="brand-logo-container">
+                        <img class="b-logo" src="../../assets/img/logo.jpg" alt="">
+                    </div>
+                    <!-- <div class="brand-name-container md-ml12 md-text16 md-f700">
+                        Fresh Fishs
+                        <!-- <i class="fas fa-check"></i> ->
+                    </div> -->
+                </div>
+                <div class="website-search-bar">
+                    <div class="header header-search md-p16">
+                        <span>
+                            <img src="//cdn.dotpe.in/cfe/image/search-grey.png" alt="">
+                            <input type="text" autocomplete="off" class="form-control md-text14 md-f400" name="search-keyword" id="search-keyword" placeholder="Search for items…"
+                                value="">
+                        </span>
                     </div>
 
                 </div>
@@ -66,33 +91,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="website-search-logo">
-            <div class="website-fixed-container" content="width=device-width" initial-scale="1.0">
-                <div class="logo-name-wrapper">
-                    <div class="brand-logo-container">
-                        <img class="b-logo" src="../../assets/img/logo.jpg" alt="">
-                    </div>
-                    <!-- <div class="brand-name-container md-ml12 md-text16 md-f700">
-                        Fresh Fishs
-                        <!-- <i class="fas fa-check"></i> ->
-                    </div> -->
-                </div>
-                <div class="website-search-bar">
-                    <div class="header header-search md-p16">
-                        <span>
-                            <img src="//cdn.dotpe.in/cfe/image/search-grey.png" alt="">
-                            <input type="text" autocomplete="off" class="form-control md-text14 md-f400" name="search-keyword" id="search-keyword" placeholder="Search for items…"
-                                value="">
-                        </span>
-                    </div>
-
-                </div>
-                <div class="dummy-div">
-
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -106,7 +104,7 @@
                             <a href="#recommended-item-1" data-target="#recommended-item-1">Recommended</a>
                         </li>
                         <li id="{{item.cat_id}}" *ngFor="let item of Product_details; let i = index" [ngClass]="{'active': selectedItem === i}" [value]="item.value"
-                            (click)='selectedItem = i;'>
+                            (click)="select(item,i)">
                             {{item.cat_name}}
                         </li>
 
@@ -308,9 +306,9 @@
                                                         </div>
                                                         <div class="add-btn-container  ">
                                                             <div class="add-quantity-btn  md-pc md-text13 md-f700">
-                                                                <div class="add-quantity-text" (click)="addcart(item)">ADD</div>
+                                                                <div class="add-quantity-text datalock" (click)="addcart(item,$event)">ADD</div>
 
-                                                                <!-- <div *ngIf="cartProduct.length>0"class="increment-decrement-btn-container">
+                                                                <div class="increment-decrement-btn-container">
                                                                         <div class="md-pc">
                                                                             <i class="fa fa-minus"  (click)="increment(i)"></i>
                                                                         </div>
@@ -318,7 +316,7 @@
                                                                         <div class="md-pc">
                                                                             <i class="fa fa-plus"  (click)="increment(i)"></i>
                                                                         </div>
-                                                                    </div> -->
+                                                                    </div>
 
                                                             </div>
                                                             <div class="custmisable-btn md-text10 md-c727272">
@@ -346,6 +344,7 @@
                             </div>
 
                         </div>
+                        
                         <div class="all-categories"></div>
                         <div class="menu-category-items-wrap cat-top-item" style="">
                             <div *ngFor="let item of Product_details">
@@ -354,7 +353,7 @@
                                         <span class="md-mt5 md-ml5 md-mb35">{{item.cat_name}}</span>
                                     </div>
                                     <div class="product-group-with-images">
-                                        <div class="item-layout-panel " *ngFor="let sub of item.product_list">
+                                        <div class="item-layout-panel " *ngFor="let sub of item.product_list let i  ofindex">
                                             <div class="item-layout-inner-wrapper ">
                                                 <div class="dfr align-items-start flex-wrap">
                                                     <div class="best-item-type food-type-icon-conatiner ">
@@ -377,10 +376,20 @@
                                                             </div>
                                                             <div class="add-btn-container  ">
                                                                 <div class="add-quantity-btn  md-pc md-text13 md-f700">
-                                                                    <div class="add-quantity-text" (click)="addcart(sub)">ADD</div>
+                                                                    <div class="add-quantity-text" (click)="addcart(sub,$event)">ADD</div>
                                                                 </div>
-                                                                <div class="custmisable-btn md-text10 md-c727272">
-                                                                    customizable</div>
+                                                                 <div class="increment-decrement-btn-container datainc" >
+                                                                     
+                                                                        <div class="md-pc">
+                                                                            <i class="fa fa-minus" (click)="decrement2(i,$event)" ></i>
+                                                                        </div>
+                                                                        <div class="md-pc md-text13 md-f700 cart-quantity-text">{{quantity}}</div>
+                                                                        <div class="md-pc">
+                                                                            <i class="fa fa-plus" (click)="increment1(i)" ></i>
+                                                                        </div>
+                                                                    </div>
+                                                                <!-- <div class="custmisable-btn md-text10 md-c727272">
+                                                                    customizable</div> -->
                                                             </div>
                                                         </div>
                                                         <div class="menu-item-description-container dfr ">
@@ -1350,7 +1359,7 @@
 
                     </div>
                     <br/>
-                    <span style="text-align: center;">version:27.04.2022</span>
+                    <span style="text-align: center;">version:28.04.2022</span>
                 </div>
 
             </div>

@@ -70,6 +70,8 @@ export class HeaderComponent implements OnInit {
   scrollDist:any;
   Recom:any=[];
   ngOnInit(): void {
+    
+    console.log(this.selectedItem)
     var log=JSON.parse(sessionStorage.getItem('login')|| '{}');
     if(log==true){
      
@@ -157,54 +159,22 @@ $(window).scroll(function() {
   obj.scrollDistance = $(window)?.scrollTop();
 
   $('.subcategory-items-wrap').each(function(i) {
-    console.log(i)
+  
     
       if ($(this).position().top <= obj.scrollDistance) {
+        // $('.menu-list li').eq(i).addClass('active');
           $('.menu-list li.active').removeClass('active');
-          $('.menu-list li').eq(i+1).addClass('active');
+          $('.menu-list li').eq(i).addClass('active');
       }
      
   });
 }).scroll();
   
-//   obj.elementPosition = $('.header-search').offset();
-//   if( obj.scrollDistance> obj.elementPosition.top){
-//     $('.header-search').css('position','fixed').css('top','0');
-// } else {
-//  // $('.header-search').css('position','static');
-// }
-
-// obj.elementPosition = $('.header-search').offset();
-
-// $(window).scroll(function(){
-//   obj.scrollDist = $(window).scrollTop();
-//   alert("sad")
-//         if( obj.scrollDist> obj.elementPosition.top){
-//               $('.header-search').css('position','fixed').css('top','0');
-//         } else {
-//             $('.header-search').css('position','static');
-//         }    
-// });
 
 
 
-// $(window).on('wheel', function(event){
-// // $(window).mousewheel(function(){
-  
-//   obj.sticky = $('.header-search'),
-//      obj.scroll = $(window).scrollTop();
 
-//   if (obj.scroll > -100) 
-//   {
-//    // $(".header-search").css( {"position":'fixed'});
-//     obj.sticky.addClass('fixed');
 
-//   }
-//   else {
-//     alert("anu");
-//     obj.sticky.removeClass('fixed');
-//   }
-// });
 
 }
 showData()
@@ -290,9 +260,9 @@ poplogin()
   this.log=true;
 }
 increment(i:any){
-  console.log(i.quantity)
-  
- i.quantity=i.quantity+0.5;
+  console.log(i)
+  // this.quantity= this.quantity+1;
+ i.quantity=i.quantity+1;
  var valueAmount= i.product_price;
 i.amount= valueAmount *i.quantity
 
@@ -306,7 +276,8 @@ console.log(this.addTotal)
 }
 
 decrement(i:any){
-  i.quantity=i.quantity-0.5;
+  // this.quantity= this.quantity-1;
+  i.quantity=i.quantity-1;
   var valueAmount= i.product_price;
   var data=this.totalAmount
   i.amount= valueAmount *i.quantity
@@ -323,6 +294,7 @@ decrement(i:any){
 this.amt=this.totalAmount;
 
 }
+
 login(){
   if (this.phoneForm.valid) {
    
@@ -344,8 +316,15 @@ login(){
     });
   }
 }
-addcart(item:any){
- this.quantity=0.5;
+addcart(item:any ,e:any){
+  
+   e.target.parentElement.classList.remove('add-quantity-btn')
+   e.target.parentElement.parentElement.children[1].classList.remove('datainc')
+  console.log(e.target.parentElement.parentElement.children[1].classList)
+  const list = e.target.classList;
+list.add("myStyle");
+console.log("sd",e )
+ this.quantity=1;
  
 
   console.log(item)
@@ -383,5 +362,46 @@ logout(){
   sessionStorage.setItem('login', JSON.stringify(false));
   sessionStorage.removeItem('user');
   this.userHead=false;
+}
+objControl:any
+targetLi:any;
+list:any
+select(item:any,i:any){
+  $('.menu-list li.active').removeClass('active');
+
+  this.selectedItem=i;
+  // document.getElementById('id').scrollIntoView({
+  //   behavior: 'smooth'
+  // });
+  console.log( this.selectedItem)
+  console.log( item.cat_id)
+  var aa=document.getElementById(item.cat_id) as HTMLElement
+  $('html,body').animate({
+    scrollTop: aa.offsetTop},
+    'smooth');
+  // var aa=document.getElementById(item.cat_id) as HTMLElement ;
+  // aa.scrollIntoView({
+  //   behavior: 'smooth'
+  // });;
+  console.log( item.cat_id)
+//   this.objControl=document.getElementById(item.cat_id);
+// this.objControl.scrollTop = this.objControl.offsetTop;
+// console.log( this.objControl.scrollTop)
+}
+increment1(i:any){
+console.log(i)
+this.quantity++;
+console.log(this.quantity)
+}
+decrement2(i:any, e:any){
+  this.quantity--;
+  console.log(this.quantity)
+//   if(0==this.quantity){
+//     e.target.parentElement.classList.remove('increment-decrement-btn-container md-pc')
+//     e.target.parentElement.parentElement.children[0].classList.remove('myStyle')
+//    console.log(e.target.parentElement.parentElement.children[1].classList)
+//    const list = e.target.classList;
+//  list.add("datainc");
+//   }
 }
 }
